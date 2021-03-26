@@ -1,0 +1,148 @@
+#headband
+{
+    top: 0px;
+    left : 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    font-size: 1.1em;
+    position : fixed;
+    background-color:rgb(212, 209, 209);
+    z-index: 1000;
+}
+
+nav ul
+{
+    list-style-type: none;
+    display: flex;
+}
+
+nav li
+{
+    margin-right: 15px;
+}
+
+nav a
+{
+    font-size: 1.3em;
+    color: #181818;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+nav a:hover
+{
+    color: orangered;
+    border-bottom: 3px solid orangered;
+}
+
+input{
+    font-size: 1.3em;
+}
+
+.button
+{
+    border-radius: 5px;
+    border : 1px #181818 solid;
+    background-color: rgba(255, 68, 0, 0.658);
+    opacity: 0.8;
+    height: 25px;
+    width: 100px;
+}
+
+.button a 
+{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    font-size: 1.1em; 
+}
+
+#main_block
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.topics_group
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgba(128, 128, 128, 0.308);
+    padding: 40px;
+}
+
+.topic
+{
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    margin-right: 50px;
+    padding-left: 20px;
+    border-bottom: black solid 3px;
+    height: 200px;
+    width: 250px;
+}
+
+footer
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(24, 23, 23);
+}
+
+#copyright
+{
+    color: whitesmoke;
+    font-size: large;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-left: 70px;
+}
+
+#follow_us
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: whitesmoke;
+    text-align: center;
+    border-left: 3px whitesmoke groove;
+    border-right: 3px whitesmoke groove;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+#links
+{
+    width: 180px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#contact
+{
+    color: whitesmoke;
+    font-size: large;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-right: 70px;
+}
+
+#contact a 
+{
+    text-decoration: none;
+    color: whitesmoke;
+}
