@@ -104,20 +104,30 @@ input{
     background: url('pictures/banner_sciences.jpg') no-repeat;
 }
 
+.title_topics_group[id="art"]
+{
+    background: url('pictures/banner_art.jpg') no-repeat;
+}
+
+.title_topics_group[id="literature"]
+{
+    background: url('pictures/banner_literature.jpg') no-repeat;
+}
+
 .title_topics_group
 {
     display: flex;
     justify-content:center;
     align-self: center;
-    width: 90%;
+    width: 100%;
     height: 200px;
-    font-size: 1.5em;
+    font-size: 2em;
 }
 
 .title_topics_group h2
 {
-    color: rgb(37, 37, 37);
-    background-color: rgba(245, 245, 245, 0.514);
+    color:white;
+    text-decoration: underline;
     height: 60px;
     padding: 15px;
 }

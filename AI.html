@@ -28,25 +28,32 @@
 
         <div id="main_block">
             <aside>
-                <h1>Filters :</h1>
-                <label for="tag">By tag : </label>
-                <input type="text" name="tag"  placeholder="Enter a tag" />
-                <label for="name">By name : </label>
-                <input type="text" name="name"  placeholder="Enter a word" />
-                Display : 
-                <input type="radio" name="recent"/>
-                <label for="recent">From more recent to oldest </label>
-                <input type="radio" name="old"/>
-                <label for="old">From oldest to more recent</label>
+                <h1>- Filters -</h1>
+                <form method="post">
+                    <label for="tag">By tag : </label>
+                    <input type="text" name="tag"  placeholder="Enter a tag..." />
+                    <label for="name">By name : </label>
+                    <input type="text" name="name"  placeholder="Enter a word..." />
+                    <label>Sort :</label> 
+                    <div>
+                        <input type="radio" id="recent" name="sort"/>
+                        <label for="recent">From more recent to oldest </label>
+                    </div>
+                    <div>
+                        <input type="radio" id="old" name="sort"/>
+                        <label for="old">From oldest to more recent</label>
+                    </div>
+                    <input type="submit" value="Apply"/>
+                </form>
             </aside>
 
             <section>
                 <div class="topic_presentation">
                     <h1>Artificial Intelligence</h1>
-                    <h2>Some description</h2>
-                    <h4>2 discussions</h4>
+                    <h2>Here, come and share your ideas about AI</h2>
+                    <h3>2 discussions</h3>
                 </div>
-                <div class="new_discussion">
+                <div id="new_discussion">
                     <h1> + Create a new discussion</h1>
                 </div>
                 <div class="discussion">
@@ -68,11 +75,27 @@
                 </div>
                 <div class="discussion">
                     <div class="discussion_part_1">
-                        <h1>How do neural networks work ?</h1>
+                        <h1><a href="discussion.html">How do neural networks work ?</a></h1>
                         <div class="all_tags">
                             Tags : 
                             <div class="tag">Computer sciences</div>
                             <div class="tag">Deep learning</div>
+                        </div>
+                    </div>
+                    <div class="discussion_part_2">
+                        <h3>2 messages</h3>
+                    </div>
+                    <div class="discussion_part_3">
+                    <h3>Last message by XXXXX</h3>
+                        <h3>About 2 hours ago</h3> 
+                    </div>
+                </div>
+                <div class="discussion">
+                    <div class="discussion_part_1">
+                        <h1><a href="discussion.html">Would you agree to travel in an autonomous car ?</a></h1>
+                        <div class="all_tags">
+                            Tags : 
+                            <div class="tag">Autonomous car</div>
                         </div>
                     </div>
                     <div class="discussion_part_2">
