@@ -10,7 +10,9 @@
     width: 100%;
     font-size: 1.1em;
     position : fixed;
-    background-color:rgb(212, 209, 209);
+    background-color:rgb(238, 238, 238);
+    border-top: rgb(248, 142, 85) solid 2px;
+    border-bottom: rgba(128, 128, 128, 0.822) solid 2px;
     z-index: 1000;
 }
 
@@ -35,8 +37,8 @@ nav a
 
 nav a:hover
 {
-    color: orangered;
-    border-bottom: 3px solid orangered;
+    color: rgb(248, 142, 85);
+    border-bottom: 3px solid rgb(248, 142, 85);
 }
 
 input{
@@ -67,6 +69,57 @@ input{
 {
     display: flex;
     flex-direction: column;
+    background-color: rgb(50, 49, 53);
+    border-radius: 20px;
+    margin: 100px 20px 30px 20px;
+    padding: 50px;
+}
+
+#main_block h1
+{
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    color: whitesmoke;
+    border-bottom: whitesmoke solid 3px;
+    width : 90%;
+    padding: 10px;
+    margin-bottom: 70px;
+}
+
+#main_block h2
+{
+    margin-left: 10px;
+    font-size: 2em;
+}
+
+.title_topics_group[id="technology"]
+{
+    background: url('pictures/banner_technology.jpg') no-repeat;
+}
+
+.title_topics_group[id="sciences"]
+{
+    background: url('pictures/banner_sciences.jpg') no-repeat;
+}
+
+.title_topics_group
+{
+    display: flex;
+    justify-content:center;
+    align-self: center;
+    width: 90%;
+    height: 200px;
+    font-size: 1.5em;
+}
+
+.title_topics_group h2
+{
+    color: rgb(37, 37, 37);
+    background-color: rgba(245, 245, 245, 0.514);
+    height: 60px;
+    padding: 15px;
 }
 
 .topics_group
@@ -74,8 +127,9 @@ input{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: rgba(128, 128, 128, 0.308);
+    align-items: center;
     padding: 40px;
+    margin-bottom: 20px;
 }
 
 .topic
@@ -83,12 +137,32 @@ input{
     display: flex;
     flex-direction: column;
     background-color: whitesmoke;
-    margin-right: 50px;
-    padding-left: 20px;
+    margin: auto 25px auto 25px;
+    padding: 5px 5px 5px 15px;
     border-bottom: black solid 3px;
-    height: 200px;
-    width: 250px;
+    height: 230px;
+    width: 300px;
 }
+
+.topic_title
+{
+    border-bottom: black solid 1px;
+    height: 130px;
+}
+
+.topic_title h2 a 
+{
+    color: rgb(32, 32, 32);
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.topic h3
+{
+    color: rgb(48, 48, 48);
+}
+
+
 
 footer
 {
