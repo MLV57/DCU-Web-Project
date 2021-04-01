@@ -2,10 +2,11 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="index.js"></script>
         <link rel="stylesheet" href="index.css" />
         <title>Home page</title>
     </head>
@@ -70,7 +71,65 @@
   </div> 
   <!-- End Modal-->
             <div id = "logo">Our logo here</div>
-            <h1 id="slogan">Every topics, <span>where</span> you want, <span>when</span> you want</h1>
+            <h1 class="slogan">Every topics, <span>where</span> you want, <span>when</span> you want</h1>
+            <div class="animation_topics">
+                <div class="animation_window slogan">
+                    <span>
+                        <ul>
+                            <li>Technology</li>
+                            <li>Sciences</li>
+                            <li>Art</li>
+                            <li>Literature</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            <script>
+                function createWordListAnimation(animNode, delay){
+                // Fetch the DOM elements.
+                var animWindow = animNode.querySelector(".animation_window");
+                var ul = animWindow.querySelector("ul");
+                var lis = ul.querySelectorAll("li");
+            
+                // Copy the animation's window to create the gray list.
+                var grayList = animWindow.cloneNode(true);
+                var grayUl = grayList.querySelector("ul");
+                //grayUl.style.visibility="hidden";
+                grayList.classList.remove("animation_window");
+                grayList.classList.add("animation-gray-list");
+                animNode.insertBefore(grayList, animWindow);
+            
+                // This function shows the li number `liNum`.                     
+                function goTo(liNum){
+                var li = lis[liNum];
+                var liTop = li.getBoundingClientRect().top;
+                var ulTop = ul.getBoundingClientRect().top;
+                var liOffset = liTop - ulTop;
+                ul.style.top = -liOffset + "px";
+                grayUl.style.top = -liOffset + "px";
+
+               // li.style.color="yellow";
+                ul.style.visibility="hidden";
+                liTop.style.color="red";
+                ulTop.style.color="green";
+                //grayUl.style.color = "red";
+
+                }
+            
+                // Set up an interval that changes the current li every `delay` ms.
+                var current = 0;
+                // We need a boolean to know if the animation is going up or down.
+                var ascending = true;
+                // Create the interval.
+                return setInterval(function(){
+                ascending = ascending && current + 1 < lis.length || current === 0;
+                current = ascending ? current + 1: current - 1;
+                goTo(current);
+                }, delay);
+            }
+            
+            createWordListAnimation(document.querySelector(".animation_topics"), 1500 /* (ms) */);
+            </script>
             <div id="deco"></div>
             <div id="key_numbers">
                 <div class="numbers">

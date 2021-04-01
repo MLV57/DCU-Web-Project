@@ -90,16 +90,55 @@ input{
     margin-bottom: 50px;
 }
 
-#slogan
+.slogan
 {
     font-size: 3.5em;
     color: whitesmoke;
 }
 
-#slogan span
+.slogan span
 {
     color: rgb(248, 142, 85);
     font-weight: bold;
+}
+
+.animation_topics 
+{
+    vertical-align: sub;
+    display: inline-block;
+    margin-top: -.1em;
+    margin-bottom: -.1em;
+    border-width: 1px;
+    height: 1.2em;
+  }
+  
+.animation_window 
+{
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+.animation-gray-list 
+{
+    position: absolute;
+    color: lightgray;
+}
+  
+.animation_topics ul 
+{
+    position: relative;
+    list-style: none;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    transition: top 300ms;
+}
+  
+.animation_topics li 
+{
+    margin: 0 .2em;
+    text-align: center;
 }
 
 #deco
