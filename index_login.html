@@ -94,7 +94,7 @@
                 // Copy the animation's window to create the gray list.
                 var grayList = animWindow.cloneNode(true);
                 var grayUl = grayList.querySelector("ul");
-                //grayUl.style.visibility="hidden";
+                grayList.style.visibility="hidden";
                 grayList.classList.remove("animation_window");
                 grayList.classList.add("animation-gray-list");
                 animNode.insertBefore(grayList, animWindow);
@@ -108,12 +108,7 @@
                 ul.style.top = -liOffset + "px";
                 grayUl.style.top = -liOffset + "px";
 
-               // li.style.color="yellow";
-                ul.style.visibility="hidden";
-                liTop.style.color="red";
-                ulTop.style.color="green";
-                //grayUl.style.color = "red";
-
+                li.style.visibility="visible";
                 }
             
                 // Set up an interval that changes the current li every `delay` ms.
@@ -126,9 +121,9 @@
                 current = ascending ? current + 1: current - 1;
                 goTo(current);
                 }, delay);
-            }
+                }
             
-            createWordListAnimation(document.querySelector(".animation_topics"), 1500 /* (ms) */);
+                createWordListAnimation(document.querySelector(".animation_topics"), 1500 /* (ms) */);
             </script>
             <div id="deco"></div>
             <div id="key_numbers">
