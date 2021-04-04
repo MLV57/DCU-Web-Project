@@ -7,14 +7,14 @@ class Carousel {
             loop : false // will it loop when going too far or just stop ?
         }, options)
         let children = [].slice.call(element.children)
-        this.isMobile = false
+        this.isMobile = false //will be used for smartphone screen display
         this.currentItem = 0
-        this.root = this.createDivWithClass('carousel')
+        this.root = this.createDivWithClass('carousel') //creation of the carousel
         this.container = this.createDivWithClass('carousel_container')
         this.root.appendChild(this.container)
         this.element.appendChild(this.root)
         this.moveCallbacks = []
-        this.items = children.map((child)=> {
+        this.items = children.map((child)=> { //get items from original htlm content and puts it in the carousel
             let item = this.createDivWithClass('carousel_item')
             item.appendChild(child)
             this.container.appendChild(item)
@@ -24,6 +24,7 @@ class Carousel {
         this.creatNavigation()
         this.moveCallbacks.forEach(cb => cb(0))
         window.addEventListener('resize', this.onWindowResize.bind(this))
+        debugger
     }
 
     setStyle () {
@@ -112,3 +113,4 @@ new Carousel(document.querySelector('#carousel1'),{
     slidesVisible: 4,
     loop: true
 })
+
