@@ -151,7 +151,7 @@ input{
     padding: 5px 5px 5px 15px;
     border-bottom: black solid 3px;
     height: 230px;
-    width: 300px;
+    /*width: 300px;*/
 }
 
 .topic_title
@@ -239,8 +239,6 @@ footer
 
 .carousel {
     overflow: hidden;
-    margin-bottom: 30px;
-    margin-left:20px;
 }
 
 

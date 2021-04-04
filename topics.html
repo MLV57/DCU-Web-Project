@@ -77,23 +77,25 @@
                 <h2>Sciences</h2>
             </div>
             <div class="topics_group">
-                <div class="topic">
-                    <div class="topic_title">
-                        <h2><a href="AI.html">Astronomy</a></h2>
+                <div id="carousel2">
+                    <div class="topic">
+                        <div class="topic_title">
+                            <h2><a href="AI.html">Astronomy</a></h2>
+                        </div>
+                        <h3>All discussions about astronomy</h3>
                     </div>
-                    <h3>All discussions about astronomy</h3>
-                </div>
-                <div class="topic">
-                    <div class="topic_title">
-                        <h2><a href="AI.html">Biology</a></h2>
+                    <div class="topic">
+                        <div class="topic_title">
+                            <h2><a href="AI.html">Biology</a></h2>
+                        </div>
+                        <h3>Here it is about biology of all kinds, join the discussion !</h3>
                     </div>
-                    <h3>Here it is about biology of all kinds, join the discussion !</h3>
-                </div>
-                <div class="topic">
-                    <div class="topic_title">
-                        <h2><a href="AI.html">Physics</a></h2>
+                    <div class="topic">
+                        <div class="topic_title">
+                            <h2><a href="AI.html">Physics</a></h2>
+                        </div>
+                        <h3>Ask here your general questions about physics</h3>
                     </div>
-                    <h3>Ask here your general questions about physics</h3>
                 </div>
             </div>
 
@@ -101,23 +103,25 @@
                 <h2>Art</h2>
             </div>
             <div class="topics_group">
-                <div class="topic">
-                    <div class="topic_title">
-                        <h2><a href="AI.html">Painting</a></h2>
+                <div id="carousel3">
+                    <div class="topic">
+                        <div class="topic_title">
+                            <h2><a href="AI.html">Painting</a></h2>
+                        </div>
+                        <h3>Come and discuss painting</h3>
                     </div>
-                    <h3>Come and discuss painting</h3>
-                </div>
-                <div class="topic">
-                    <div class="topic_title">
-                        <h2><a href="AI.html">Sculpture</a></h2>
+                    <div class="topic">
+                        <div class="topic_title">
+                            <h2><a href="AI.html">Sculpture</a></h2>
+                        </div>
+                        <h3>Here, join sculpture enthusiasts of all kinds</h3>
                     </div>
-                    <h3>Here, join sculpture enthusiasts of all kinds</h3>
-                </div>
-                <div class="topic">
-                    <div class="topic_title">
-                        <h2><a href="AI.html">Architecture</a></h2>
+                    <div class="topic">
+                        <div class="topic_title">
+                            <h2><a href="AI.html">Architecture</a></h2>
+                        </div>
+                        <h3>Rediscover the architectural treasures of our history</h3>
                     </div>
-                    <h3>Rediscover the architectural treasures of our history</h3>
                 </div>
             </div>
 
@@ -125,23 +129,25 @@
                 <h2>Literature</h2>
             </div>
             <div class="topics_group">
-                <div class="topic">
-                    <div class="topic_title">
-                        <h2><a href="AI.html">Poetry</a></h2>
+                <div id="carousel4">
+                    <div class="topic">
+                        <div class="topic_title">
+                            <h2><a href="AI.html">Poetry</a></h2>
+                        </div>
+                        <h3>Here discuss poetry and find your inspiration</h3>
                     </div>
-                    <h3>Here discuss poetry and find your inspiration</h3>
-                </div>
-                <div class="topic">
-                    <div class="topic_title">
-                        <h2><a href="AI.html">Theater</a></h2>
+                    <div class="topic">
+                        <div class="topic_title">
+                            <h2><a href="AI.html">Theater</a></h2>
+                        </div>
+                        <h3>Write your next piece !</h3>
                     </div>
-                    <h3>Write your next piece !</h3>
-                </div>
-                <div class="topic">
-                    <div class="topic_title">
-                        <h2><a href="AI.html">Novel</a></h2>
+                    <div class="topic">
+                        <div class="topic_title">
+                            <h2><a href="AI.html">Novel</a></h2>
+                        </div>
+                        <h3>Share your feelings on your last readings</h3>
                     </div>
-                    <h3>Share your feelings on your last readings</h3>
                 </div>
             </div>
         </div>
@@ -166,6 +172,27 @@
         <script src="carousel.js"></script>
         <script>
             new Carousel(document.querySelector('#carousel1'),{
+            slidesToScroll: 1,
+            slidesVisible: 3,
+            loop: true
+        })
+        </script>
+        <script>
+        new Carousel(document.querySelector('#carousel2'),{
+            slidesToScroll: 1,
+            slidesVisible: 3,
+            loop: true
+        })
+        </script>
+        <script> 
+        new Carousel(document.querySelector('#carousel3'),{
+            slidesToScroll: 1,
+            slidesVisible: 3,
+            loop: true
+        })
+        </script>
+        <script>
+        new Carousel(document.querySelector('#carousel4'),{
             slidesToScroll: 1,
             slidesVisible: 3,
             loop: true
