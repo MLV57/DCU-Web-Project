@@ -107,10 +107,11 @@ class Carousel {
         return this.isMobile ? 1 : this.options.slidesVisible
     }
 }
-
+/*
 new Carousel(document.querySelector('#carousel1'),{
     slidesToScroll: 2,
     slidesVisible: 4,
     loop: true
-})
+})*/
+
 
