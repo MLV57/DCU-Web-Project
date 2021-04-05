@@ -8,14 +8,13 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="index.js"></script>
         <link rel="stylesheet" href="index.css" />
-         <!--Async means that loading the script won't interfer in loading html content-->
         <title>Home page</title>
     </head>
     
     <body>
         <header>
             <div id="headband">
-                <a href="index_login.html"><img src="pictures/logo_mini.jpg" alt="Logo"/></a>
+                <a href="index.html"><img src="pictures/logo.jpg" alt="Logo"/></a>
                 <nav>
                     <ul>
                         <li><a href="topics.html">Topics</a></li>
@@ -23,7 +22,7 @@
                     </ul>
                 </nav>  
                 <input type="text" name="research"  size=50 placeholder="Search..." />
-                <!--<div class="button">
+               <!--<div class="button">
                     <a href="login.html">Login</a>
                 </div>-->
 
@@ -45,35 +44,40 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
-        <div class="modal-body" style="padding:40px 50px;">
-          <form role="form">
-            <div class="form-group">
-              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+        <div id="main_block3">
+            <div class="buttonG">
+            <a href="index.html">Login with Google</a>
             </div>
-            <div class="form-group">
-              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+            <br>
+            <div class="buttonF">
+            <a href="index.html">Login with Facebook</a>
             </div>
-            <div class="checkbox">
-              <label><input type="checkbox" value="" checked>Remember me</label>
-            </div>
-              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
-          </form>
+            <br>
+                <label for="tag" style="color: Gainsboro">Email : 
+                <input type="text" name="email"  placeholder="" />
+                </label>
+                <br>
+                <label for="name" style="color: Gainsboro">Password :
+                <input type="text" name="password"  placeholder="" />
+                </label>
+                <a href="signup.html">Forgot about your password?</a>
+                <br>
+                <br>
+                <div class="button2">
+                <a href="index.html">Login</a>
+                </div>
+                <br>
+            <p style="color:white">If you don't have any account please <a href="signup.html">Sign up here</a></p>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-          <p>Not a member? <a href="#">Sign Up</a></p>
-          <p>Forgot <a href="#">Password?</a></p>
         </div>
       </div>
       <!-- End modal content-->
     </div>
   </div> 
   <!-- End Modal-->
-            <div id="logo">
-                <img src="pictures/logo.jpg" alt="Logo"/>
-            </div>
+            <div id = "logo">Our logo here</div>
             <h1 class="slogan">Every topics, <span>where</span> you want, <span>when</span> you want</h1>
             <div class="animation_topics">
                 <div class="animation_window slogan">
@@ -147,9 +151,6 @@
                     <span class="description_number">messages posted each day</span>
                 </div>
             </div>
-
-            <!-- Topics -->
-            <!--
             <div id="topics">
                 <div class="topics_element">
                     <a href="topics.html#technology">
@@ -188,62 +189,6 @@
                     </a>   
                 </div>
             </div>
-            -->
-            <!-- End Topics-->
-            
-            <!-- NEw topic with carousel-->
-            <div class="container">
-                <div id="carousel1">
-                    <div class="topics_element">
-                        <a href="topics.html#technology">
-                            <img src="pictures/technology.jpg" alt="Technology"/>
-                            <div class="topics_content">
-                                <h1>Technology</h1>
-                                <h3>Discuss the latest technologies that human have created : AI, nanotechnology, advanced electronics and many more ...</h3>
-                            </div>    
-                        </a>
-                    </div>
-                    <div class="topics_element">
-                        <a href="topics.html#sciences">
-                            <img src="pictures/sciences.jpg" alt="Sciences"/>
-                            <div class="topics_content">
-                                <h1>Sciences</h1>
-                                <h3>Discover the latest scientific advances of the moment in many fields: astronomy, biology, physics ...</h3>
-                            </div>
-                        </a>    
-                    </div>
-                    <div class="topics_element">
-                        <a href="topics.html#art">
-                            <img src="pictures/art.jpg" alt="Art"/>
-                            <div class="topics_content">
-                                <h1>Art</h1>
-                                <h3>Contemplate the latest trendy works or dive into the heart of History and the different artistic currents that have crossed it...</h3>
-                            </div>
-                        </a>    
-                    </div>
-                    <div class="topics_element">
-                        <a href="topics.html#literature">
-                            <img src="pictures/literature.jpg" alt="Literature"/>
-                            <div class="topics_content">
-                                <h1>Literature</h1>
-                                <h3>Find literary classics or discover new, lesser-known authors...</h3>
-                            </div>
-                        </a>   
-                    </div>
-                    <div class="topics_element">
-                        <a href="topics.html#technology">
-                            <img src="pictures/technology.jpg" alt="Technology"/>
-                            <div class="topics_content">
-                                <h1>Technology2</h1>
-                                <h3>Discuss the latest technologies that human have created : AI, nanotechnology, advanced electronics and many more ...</h3>
-                            </div>    
-                        </a>
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- End topic carousel-->
-
             <div id="featured">
                 <div class="featured_element" id="popular">
                     <h1>Popular discussions</h1>
@@ -277,12 +222,10 @@
                 </div>
             </div>                
         </div>
-
-
         <footer>
             <div id="copyright">
-                <h1>GoGoChat</h1>
-                <p>@GoGoChat 2021</p>
+                <h1>Name forum</h1>
+                <p>@Name forum 2021</p>
             </div>
             <div id="follow_us">
                 <h1>Follow us</h1>
@@ -294,23 +237,15 @@
             </div>
             <div id="contact">
                     <h1>Contact</h1>
-                    <a href="mailto:nameforum@gmail.com" title="Send us an email !">gogochat@gmail.com</a>
+                    <a href="mailto:nameforum@gmail.com" title="Send us an email !">nameforum@gmail.com</a>
             </div>
         </footer>
-        <script src="carousel.js"></script>
         <script>
-            //MODAL LOGIN//
             $(document).ready(function(){
             $("#myBtn").click(function(){
                 $("#myModal").modal();
             });
             });
-            new Carousel(document.querySelector('#carousel1'),{
-                slidesToScroll: 2,
-                slidesVisible: 4,
-                loop: true
-            })
-           
         </script>
     </body>
 </html>
