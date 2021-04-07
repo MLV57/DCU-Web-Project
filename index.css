@@ -547,14 +547,4 @@ footer
 
 /* Dynamic Menu Bar (Daragh)  */
 
-#myDiv {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-.myDivStartHeight {
-    height: 500px;
-}
-.myDivNewHeight {
-    height: 700px;
-}
+
