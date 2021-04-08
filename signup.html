@@ -1,80 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="utf-8" />
-		<link rel="stylesheet" href="index.css" />
-<title>Sign up page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
-<body style="background:linear-gradient(rgb(242, 217, 199), rgb(237, 160, 109))">
-	<header>
-	<div id="headband">
-                <a href="index.html"><img src="pictures/logo_mini.jpg" alt="Logo"/></a>
-                <nav>
-                    <ul>
-                        <li><a href="topics.html">Topics</a></li>
-                        <li><a href="about.html">About us</a></li>
-                    </ul>
-                </nav>  
-                <input type="text" name="research"  size=50 placeholder="Search..." />
-    </div>
-	</header>
 
-
-<div id="main_block2">
-            <div class="buttonG">
-            <a href="index.html">Sign up with Google</a>
-            </div>
-            <br>
-            <div class="buttonF">
-            <a href="index.html">Sign up with Facebook</a>
-            </div>
-            <br>
-            	<label for="tag" style="color: Gainsboro">Name : 
-            	<br>
-                <input type="text" name="name"  placeholder="" />
-                </label>
-                <br>
-                <label for="tag" style="color: Gainsboro">Email : 
-                <br>
-                <input type="text" name="email"  placeholder="" />
-                </label>
-                <br>
-                <label for="name" style="color: Gainsboro">Password :
-                <br>
-                <input type="text" name="password"  placeholder="" />
-                </label>
-                <label for="name" style="color: Gainsboro">Confirm password :
-                <br>
-                <input type="text" name="password2"  placeholder="" />
-                </label>
-                <br>
-                <div class="checkbox">
-              	<label style="color: white"><input type="checkbox" value="" >I agree to the terms of service and privacy policy</label>
-           		</div>
-                <br>
-                <div class="button3">
-                <a href="index.html">Sign up</a>
-                </div>
-                <br>
+<body>
+    <h1><b>Sign Up</b></h1>
+    <form aciton="/myaction.php" name="myForm" onsubmit="return validateForm()" method="post">
+        <div class="formdesign" id="USname">
+            Username: <input type="text" name="fuser" required><b><span class="formerror"> </span></b>
+        </div>
+        <div class="formdesign" id="name">
+            First Name: <input type="text" name="fname" required><b><span class="formerror"> </span></b>
+        </div>
+        <div class="formdesign" id="sname">
+            Last Name: <input type="text" name="lname" required><b><span class="formerror"> </span></b>
+        </div>
+        <div class="formdesign" id="Gender">
+            Gender: <input type="radio" name="fgender" value="male"> <label for="male">Male</label>
+            <input type="radio" name="fgender" value="female"> <label for="female">Female</label>
+            <input type="radio" name="fgender" value="other"> <label for="other">Other</label>
+            <b><span class="formerror"> </span></b>
+        </div>
+        <div class="formdesign" id="uname">
+            University Name: <input type="text" name="funinersity" required><b><span class="formerror"> </span></b>
+        </div>
+        <div class="formdesign" id="Eid">
+            Enrollment ID: <input type="text" name="fid" required><b><span class="formerror"> </span></b>
         </div>
 
-	<footer>
-            <div id="copyright">
-                <h1>Name forum</h1>
-                <p>@Name forum 2021</p>
-            </div>
-            <div id="follow_us">
-                <h1>Follow us</h1>
-                <div id ="links">
-                        <a href="https://fr-fr.facebook.com/" title="Facebook"><img src="pictures/fb1.png" alt="Facebook" /></a>
-                        <a href="https://twitter.com/" title ="Twitter"><img src="pictures/twitter1.png" alt="Twitter" /></a>
-                        <a href="https://www.instagram.com/" title="Instagram"><img src="pictures/insta1.png" alt="Instagram" /></a>
-                </div>
-            </div>
-            <div id="contact">
-                    <h1>Contact</h1>
-                    <a href="mailto:nameforum@gmail.com" title="Send us an email !">nameforum@gmail.com</a>
-            </div>
-        </footer>
+        <div class="formdesign" id="email">
+            Email: <input type="email" name="femail" required><b><span class="formerror"> </span></b>
+        </div>
+
+        <div class="formdesign" id="phone">
+            Contact Number: <input type="number" name="fphone" required><b><span class="formerror"></span></b>
+        </div>
+
+        <div class="formdesign" id="pass">
+            Password: <input type="password" name="fpass" required><b><span class="formerror"></span></b>
+        </div>
+
+        <div class="formdesign" id="cpass">
+            Confirm Password: <input type="password" name="fcpass" required><b><span class="formerror"></span></b>
+        </div>
+        <div class="formdesign" id="address">
+            Address: <input type="text" name="fadd" required><b><span class="formerror"></span></b>
+        </div>
+
+        <input class="but" type="submit" value="Submit">
+
+    </form>
 </body>
+<script>
+    src = "index.js"
+</script>
+
 </html>
