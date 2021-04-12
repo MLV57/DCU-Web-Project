@@ -51,3 +51,12 @@
     function anti_enlarge(x) {
         x.style.border ='0px solid #D3D3D309';
     }
+
+
+    function enlarge(x) {
+        x.style.border ='30px solid #D3D3D309';
+    }
+
+    function anti_enlarge(x) {
+        x.style.border ='0px solid #D3D3D309';
+    }
