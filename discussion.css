@@ -226,3 +226,49 @@ footer
     text-decoration: none;
     color: whitesmoke;
 }
+
+.dyanamicMenu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    background-color: rgba(248, 142, 85, 0.877);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.dyanamicMenu h1 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.dyanamicMenu h2 {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.dyanamicMenu a {
+    text-decoration: none;
+    font-size: 30px;
+    color: rgb(50, 49, 53);
+    display: block;
+    transition: 0.3s;
+}
+
+.dyanamicMenu a:hover {
+    color: #f1f1f1;
+}
+
+.dyanamicMenu .closebtn {
+    padding-top: 150px;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}

@@ -262,14 +262,24 @@ footer
     background-color: rgba(248, 142, 85, 0.877);
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 300px;
+    padding-top: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.dyanamicMenu h1 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.dyanamicMenu h2 {
+    font-size: 1.2em;
+    text-align: center;
 }
 
 .dyanamicMenu a {
-
-    padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 30px;
     color: rgb(50, 49, 53);
     display: block;
     transition: 0.3s;
@@ -280,7 +290,7 @@ footer
 }
 
 .dyanamicMenu .closebtn {
-    padding-top: 250px;
+    padding-top: 150px;
     position: absolute;
     top: 0;
     right: 25px;
