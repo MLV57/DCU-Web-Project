@@ -27,12 +27,18 @@
                         <li><a href="about.html">About us</a></li>
                     </ul>
                 </nav>  
-                <input type="text" name="research"  size=50 placeholder="Search..." />
+                <div>
+                    <input type="text" name="research"  size=50 placeholder="Type your research here" />
+                    <input type="submit" value="Search"/>
+                </div>
                 <div class="button">
                     <a href="login.html">Login</a>
                 </div>
                 <div class="button">
                     <a href="signup.html">Sign up</a>
+                </div>
+                <div class="button">
+                    <a href="profil.html">My profil</a>
                 </div>
                 <button type="button" class="button" id="menuBtn" onclick="openNav()">Menu</button>
             </div>
@@ -63,11 +69,9 @@
                 <div class="topic_presentation">
                     <h1>Artificial Intelligence</h1>
                     <h2>Here, come and share your ideas about AI</h2>
-                    <h3>2 discussions</h3>
+                    <h3>3 discussions</h3>
                 </div>
-                <div id="new_discussion">
-                    <h1> + Create a new discussion</h1>
-                </div>
+                <input id ="new_discussion" type="submit" value="+ Create a new discussion"/>
                 <div class="discussion">
                     <div class="discussion_part_1">
                         <h1><a href="discussion.html">Is AI a danger for humanity ?</a></h1>

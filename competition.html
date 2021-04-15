@@ -27,12 +27,18 @@
                 <li><a href="about.html">About us</a></li>
             </ul>
         </nav>
-        <input type="text" name="research"  size=50 placeholder="Search..." />
+        <div>
+            <input type="text" name="research"  size=50 placeholder="Type your research here" />
+            <input type="submit" value="Search"/>
+        </div>
         <div class="button">
             <a href="login.html">Login</a>
         </div>
         <div class="button">
             <a href="signup.html">Sign up</a>
+        </div>
+        <div class="button">
+            <a href="profil.html">My profil</a>
         </div>
         <button type="button" class="button" id="menuBtn" onclick="openNav()">Menu</button>
     </div>
@@ -40,108 +46,100 @@
 </header>
 
 <div id="flex-container">
-<div id="main_block">
-
-
-    <h1>Enter Our Competition!</h1>
-
-
-
-    <form name="table" id="table" onsubmit="validateForm()">
-        <table>
-            <tr>
-                <td>
-                    <p for="name">Name*</p>
-                </td>
-                <td>
-                    <input id="name" name="name" title="name" type="text" placeholder="Enter Name..." size="24" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="age">Age</label>
-                </td>
-                <td>
-                    <input id="age" name="age" title="age" type="number" placeholder="Enter Age..." size="24" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="gender">Gender</label>
-                </td>
-                <td>
-                    <input id="gender" name="gender" title="gender" type="text" placeholder="Enter Gender..." size="24" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="phone">Phone</label>
-                </td>
-                <td>
-                    <input id="phone" name="phone" title="phone" type="text" placeholder="Enter Phone Number..." size="24"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="email">Email*</label>
-                </td>
-                <td>
-                    <input id="email" name="email" title="email" type="email" placeholder="Enter Email Address..." size="24" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="event">Event</label>
-                </td>
-                <td>
-                    <input id="event" name="event" title="event" type="text" placeholder="Where would you go..."size="24" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="from">From</label>
-                </td>
-                <td>
-                    <input id="from" name="from" title="from" type="text" placeholder="Where are you from..." size="24" />
-                </td>
-            </tr>
-            <tr>
-            <tr>
-                <td>
-                    <label for="why">Why*</label>
-                </td>
-                <td>
-                    <input id="why" name="why" title="why" type="text" placeholder="Why Do You Think You Should Win..."size="24" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="date">Date</label>
-                </td>
-                <td>
-                    <input id="date" name="date" title="date" type="date" placeholder="Todays Date Is..."size="24" />
-                </td>
-            </tr>
-        </table>
-        <br>
-        <br>
-
-        <input type="submit" value="Submit">
-    </form>
-</div>
+    <div id="main_block">
+        <h1>Fill out the form for a chance to win</h1></br>
+        <form name="table" id="table" onsubmit="validateForm()">
+            <table>
+                <tr>
+                    <td>
+                        <label for="name">Name*</p>
+                    </td>
+                    <td>
+                        <input id="name" name="name" title="name" type="text" placeholder="Enter Name..." size="24" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="age">Age</label>
+                    </td>
+                    <td>
+                        <input id="age" name="age" title="age" type="number" placeholder="Enter Age..." size="24" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="gender">Gender</label>
+                    </td>
+                    <td>
+                        <input id="gender" name="gender" title="gender" type="text" placeholder="Enter Gender..." size="24" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="phone">Phone</label>
+                    </td>
+                    <td>
+                        <input id="phone" name="phone" title="phone" type="text" placeholder="Enter Phone Number..." size="24"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email">Email*</label>
+                    </td>
+                    <td>
+                        <input id="email" name="email" title="email" type="email" placeholder="Enter Email Address..." size="24" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="event">Event</label>
+                    </td>
+                    <td>
+                        <input id="event" name="event" title="event" type="text" placeholder="Where would you go..."size="24" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="from">From</label>
+                    </td>
+                    <td>
+                        <input id="from" name="from" title="from" type="text" placeholder="Where are you from..." size="24" />
+                    </td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>
+                        <label for="why">Why*</label>
+                    </td>
+                    <td>
+                        <input id="why" name="why" title="why" type="text" placeholder="Why should you win..."size="24" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="date">Date</label>
+                    </td>
+                    <td>
+                        <input id="date" name="date" title="date" type="date" placeholder="Todays Date Is..."size="24" />
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 
     <div id="main_block3">
-        <h1> Enter our Competition!</h1>
+        <h1> Enter our Competition !</h1>
+        <h2> Be in with a chance to win a holiday for two to a destination of your choice!</h2>
         <img src="pictures/holiday.jpg">
     </div>
 
     <div id="main_block2">
-        <h1> Enter our Competition!</h1>
+        <h1> End of the event in </h1>
         <p id="timer"></p>
-        <h2> Be in with a chance to win a holiday for two to a destination of your choice!</h2>
-        </div>
-
-
+    </div>
 
 </div>
 <footer>

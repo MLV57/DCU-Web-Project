@@ -84,20 +84,17 @@ input{
 
 #main_block h1
 {
- color: white;
-}
-
-#main_block h2
-{
     color: white;
+    text-align: center;
 }
 
 #main_block2
 {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    text-align: center;
     background-color: rgb(50, 49, 53);
     border-radius: 20px;
     margin: 100px 20px 30px 20px;
@@ -109,17 +106,12 @@ input{
     color: white;
 }
 
-#main_block2 h2
-{
-    color: white;
-}
-
 #main_block2 p
 {
     text-align: center;
     font-size: 60px;
     margin-top: 0px;
-    color: white;
+    color: red;
 }
 
 #main_block3
@@ -137,6 +129,8 @@ input{
 #main_block3 h1
 {
     color: white;
+    font-size: 3em;
+    text-decoration: underline;
 }
 
 #main_block3 h2
@@ -144,316 +138,16 @@ input{
     color: white;
 }
 
-#logo
+form input
 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: whitesmoke;
-    font-size: 2.5em;
-    margin-bottom: 50px;
-}
-
-.slogan
-{
-    font-size: 3.5em;
-    color: whitesmoke;
-}
-
-.slogan span
-{
-    color: rgb(248, 142, 85);
-    font-weight: bold;
-}
-
-.animation_topics
-{
-    vertical-align: sub;
-    display: inline-block;
-    margin-top: -.1em;
-    margin-bottom: -.1em;
-    border-width: 1px;
-    height: 1.2em;
-}
-
-.animation_window
-{
-    position: relative;
-    height: 70px;
-    overflow: hidden;
-}
-
-.animation-gray-list
-{
-    position: absolute;
-    color: lightgray;
-}
-
-.animation_topics ul
-{
-    position: relative;
-    list-style: none;
-    top: 0;
-    padding: 0;
-    margin: 0;
-    transition: top 300ms;
-}
-
-.animation_topics li
-{
-    margin: 0 .2em;
-    text-align: center;
-}
-
-#deco
-{
-    height: 10px;
-    width: 70px;
-    background-color: rgb(121, 120, 120);
-    border-radius: 20px;
-    margin-top: 70px;
-    margin-bottom: 70px;
-}
-
-#key_numbers
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 100px;
-    color: whitesmoke;
-}
-
-.numbers
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-right: 40px;
-}
-
-.title_number
-{
-    font-size: 2em;
-    font-weight: bold;
-    color : white;
-    margin-bottom: 5px;
-}
-
-.description_number
-{
-    font-size: 1.3em;
-    color: rgb(168, 166, 166);
-}
-
-#topics
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.topics_element
-{
-    display: inline-block;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    margin-right: 30px;
-    padding-bottom: 20px;
-    padding-top: 0px;
-    background-color: rgba(245, 245, 245, 0.925);
-    border-radius: 10px;
-    height: 500px;
-    width: 250px;
-}
-
-.topics_element img
-{
-    border-radius: 10px 10px 0px 0px;
-    vertical-align: top;
-}
-
-.topics_element a
-{
-    text-decoration: none;
-    color: rgb(24, 24, 24);
-}
-
-.topics_content
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-}
-
-.topics_content h1
-{
-    width : 200px;
-    background-color:rgba(128, 128, 128, 0.329);
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.topics_content h3
-{
-    font-size: 1em;
-    color: rgb(54, 54, 54);
-}
-
-#featured
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 150px;
-}
-
-.featured_element
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: rgba(245, 245, 245, 0.925);
-    width: 500px;
-    height: 400px;
-    border-radius: 10px;
-    padding: 20px;
-    margin-right: 30px;
-}
-
-.featured_element h1
-{
-    border-bottom: rgb(248, 142, 85) solid 3px;
-    color: rgb(27, 27, 27);
-}
-
-.featured_discussion
-{
-    background-color: rgba(128, 128, 128, 0.151);
-    border-bottom: black solid 1px;
     margin-bottom: 10px;
 }
 
-.featured_discussion h1
+label
 {
-    font-size: 1.5em;
-    border : none;
+    color: white;
+    font-size: 1.4em;
 }
-
-.featured_discussion h3
-{
-    font-size: 1em;
-    color: rgb(68, 68, 68);
-}
-
-.featured_discussion:hover
-{
-    background-color: rgba(94, 94, 94, 0.425);
-}
-
-
-
-/* main image slideshows (Daragh)  */
-
-.tech_slide
-{
-    position:relative; width:300px; height:300px;
-}
-
-.tech_slide img
-{
-    position:absolute;
-}
-
-.sci_slide
-{
-    position:relative; width:300px; height:300px;
-}
-
-.sci_slide img
-{
-    position:absolute;
-}
-
-.sci_slide
-{
-    position:relative; width:300px; height:300px;
-}
-
-.sci_slide img
-{
-    position:absolute;
-}
-
-.art_slide
-{
-    position:relative; width:300px; height:300px;
-}
-
-.art_slide img
-{
-    position:absolute;
-}
-
-.lit_slide
-{
-    position:relative; width:300px; height:300px;
-}
-
-.lit_slide img
-{
-    position:absolute;
-}
-
-/* main image slideshows (Daragh)  */
-
-/* Dynamic Menu Bar (Daragh)  */
-
-.dyanamicMenu {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 0;
-    top: 0;
-    left: 0;
-    background-color: rgba(248, 142, 85, 0.877);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 300px;
-}
-
-.dyanamicMenu a {
-
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: rgb(50, 49, 53);
-    display: block;
-    transition: 0.3s;
-}
-
-.dyanamicMenu a:hover {
-    color: #f1f1f1;
-}
-
-.dyanamicMenu .closebtn {
-    padding-top: 250px;
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-/* Dynamic Menu Bar (Daragh)  */
-
 
 footer
 {
