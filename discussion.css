@@ -119,7 +119,7 @@ input{
 .presentation input 
 {
     align-self: center;
-    height: 30px;
+    height: 30px; /*It's better without - Nahmiaz*/
 }
 
 #new_message
