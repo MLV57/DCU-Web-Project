@@ -20,6 +20,7 @@ nav ul
 {
     list-style-type: none;
     display: flex;
+    margin-bottom: 0px;
 }
 
 nav li
