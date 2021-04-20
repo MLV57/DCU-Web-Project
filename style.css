@@ -82,6 +82,11 @@ nav a:hover
     border-bottom: 3px solid rgb(248, 142, 85);
 }
 
+#headband input[type="submit"]
+{
+    margin-right: 300px;
+}
+
 input{
     font-size: 1.3em;
 }

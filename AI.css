@@ -20,6 +20,8 @@ nav ul
 {
     list-style-type: none;
     display: flex;
+    /**/
+    margin-bottom: 0px;
 }
 
 nav li
@@ -29,6 +31,8 @@ nav li
 
 nav a
 {
+    font-size: 1.3em;
+    /**/
     color: #181818;
     padding-bottom: 3px;
     text-decoration: none;
