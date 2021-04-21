@@ -277,5 +277,12 @@
             slidesVisible: 3,
         })
         </script>
+        <script>
+            //function that make a div clickable and redirecting to the link contained in the a component 
+            $(".topic").click(function() {
+            window.location = $(this).find("a").attr("href"); 
+            return false;
+            });
+        </script>
     </body>
 </html>

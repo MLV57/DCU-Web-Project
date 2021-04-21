@@ -315,6 +315,14 @@ input{
     border-radius: 10px;
     height: 500px;
     width: 250px;
+    transition: 0.3s;
+}
+
+.topics_element:hover{
+    /* the div will translate 5% of its heigth up in 0.3s*/
+    background-color: rgba(243, 243, 243, 0.822);
+    transform: translate(0,-5%);
+    transition: 0.3s;
 }
 
 .topics_element img

@@ -158,6 +158,16 @@ input{
     border-bottom: black solid 3px;
     height: 200px;
     width: 350px;
+    cursor: pointer;
+    transition : 0.3s;
+}
+
+.topic:hover
+{
+    background-color: rgba(243, 243, 243, 0.822);
+    transform: translate(0,-5%);
+    transition: 0.3s;
+    
 }
 
 .topic_title
@@ -178,10 +188,7 @@ input{
     color: rgb(48, 48, 48);
 }
 
-.topic:hover
-{
-    background-color: rgba(243, 243, 243, 0.822);
-}
+
 
 footer
 {

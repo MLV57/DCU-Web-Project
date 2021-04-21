@@ -80,7 +80,7 @@
                         <h1><a href="discussion.html">Is AI a danger for humanity ?</a></h1>
                         <div class="all_tags">
                             Tags : 
-                            <div class="tag">Computer sciences</div>
+                            <div class="tag"><a href="index_login.html"></a>Computer sciences</div>
                             <div class="tag">Deep learning</div>
                         </div>
                     </div>
@@ -146,5 +146,19 @@
                     <a href="mailto:nameforum@gmail.com" title="Send us an email !">gogochat@gmail.com</a>
             </div>
         </footer>
+        <script>
+            $(".discussion").click(function(){
+                window.location=$(this).find("a").attr("href"); 
+                return false;
+            });
+            
+            $(".tag").click(function (e) {
+                e.stopPropagation(); //Prevents the event from bubbling up the DOM tree, 
+                //preventing any parent handlers from being notified of the event. 
+                //In this case, it allows us to have a clickable div with another clickable div inside
+                window.location=$(this).find("a").attr("href"); 
+                return false;
+            });
+        </script>
     </body>
 </html>
