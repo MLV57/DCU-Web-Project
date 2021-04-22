@@ -1,0 +1,16 @@
+.google{
+    background: #dd4b39;
+    color: white;
+  }
+.google:hover{
+    background: #b33e2e;
+    color: white;
+}
+  .facebook{
+    background: #3B5998;
+    color: white;
+  }
+  .facebook:hover{
+    background: #314a80;
+    color: white;
+  }

@@ -1,0 +1,247 @@
+#headband
+{
+    top: 0px;
+    left : 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    font-size: 1.1em;
+    position : fixed;
+    background-color:rgb(238, 238, 238);
+    border-top: rgb(248, 142, 85) solid 2px;
+    border-bottom: rgba(128, 128, 128, 0.822) solid 2px;
+    z-index: 1000;
+}
+
+nav ul
+{
+    list-style-type: none;
+    display: flex;
+}
+
+nav li
+{
+    margin-right: 15px;
+}
+
+nav a
+{
+    font-size: 1.3em;
+    color: #181818;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+nav a:hover
+{
+    color: rgb(248, 142, 85);
+    border-bottom: 3px solid rgb(248, 142, 85);
+}
+
+input{
+    font-size: 1.3em;
+}
+
+.button
+{
+    border-radius: 5px;
+    border : 1px #181818 solid;
+    background-color: rgba(248, 142, 85, 0.877);
+    color: white;
+    opacity: 0.8;
+    height: 25px;
+    width: 100px;
+}
+
+.button a 
+{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.1em;
+}
+
+#main_block
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+#personnal_data
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    background-color: rgb(50, 49, 53);
+    border-radius: 20px;
+    color: white;
+    padding: 20px 50px 20px 50px;
+    margin-bottom: 20px;
+}
+
+#personnal_data h1
+{
+    font-size: 1.2em;
+    align-self: flex-start;
+}
+
+#personnal_data input
+{
+    align-self: flex-end;
+}
+
+#picture
+{
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.589);
+    margin-bottom: 50px;
+}
+
+#activity
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 1100px;
+    margin-bottom: 20px;
+}
+
+#hello
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 140px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+}
+
+#hello h1
+{
+    font-size: 2em;
+    margin-bottom: 0px;
+}
+
+#hello h2
+{
+    font-size: 1.2em;
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+
+#hello h3
+{
+    font-size: 1em;
+    font-weight: normal;
+    color: rgb(78, 78, 78);
+    margin-bottom: 0px;
+}
+
+#show_activity
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 75%;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color:  rgba(128, 128, 128, 0.466);
+}
+
+table, th, td 
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+tr
+{
+    background-color: whitesmoke;
+}
+
+th
+{
+    background-color: gray;
+}
+
+tr:hover 
+{
+    background-color: rgb(248, 142, 85);
+}
+
+td 
+{ 
+    white-space:pre 
+}
+
+
+
+footer
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(24, 23, 23);
+}
+
+#copyright
+{
+    color: whitesmoke;
+    font-size: large;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-left: 70px;
+}
+
+#follow_us
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: whitesmoke;
+    text-align: center;
+    border-left: 3px whitesmoke groove;
+    border-right: 3px whitesmoke groove;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+#links
+{
+    width: 180px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#contact
+{
+    color: whitesmoke;
+    font-size: large;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-right: 70px;
+}
+
+#contact a 
+{
+    text-decoration: none;
+    color: whitesmoke;
+}

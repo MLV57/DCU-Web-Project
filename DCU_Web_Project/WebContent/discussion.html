@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        
+        <title>Discussion</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="modal_login.css" />
+        <link rel="stylesheet" href="discussion.css" />
+
+    </head>
+    
+    <body>
+
+        <div id="dyanamicMenu" class="dyanamicMenu">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <h1>**</h1>
+            <h1>From 15th April to 15th May 2021</h1>
+            <h1>**</h1>
+            <h2>Be in with a chance to win a holiday for two to a destination of your choice !</h2>
+            <h2>You just have to fill out a form to participate !</h2>
+            <h1>Enter Our Competition !</h1>
+            <a href="competition.html">=> Click HERE <=</a>
+        </div>
+        
+        <header>
+            <div id="headband">
+                <a href="index_login.html"><img src="pictures/logo_mini.jpg" alt="Logo"/></a>
+                <nav>
+                    <ul>
+                        <li><a href="topics.html">Topics</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a id="menuBtn" onclick="openNav()">**Special event**</a></li>
+                    </ul>
+                </nav>  
+                <div>
+                    <input type="text" name="research"  size=50 placeholder="Type your research here" />
+                    <input type="submit" value="Search"/>
+                </div>
+                <button type="button" class="button" id="myBtn">Login</button>
+                <div class="button">
+                    <a href="signup.html">Sign up</a>
+                </div>
+                <div class="button">
+                    <a href="profil.html">My profil</a>
+                </div>
+            </div>
+        </header>
+
+        <div id="path"> 
+            <span><a href="topics.html">Technology</a> > <a href="AI.html">Artificial Intelligence</a> > </span> Is AI a danger for humanity ?
+        </div>
+
+        <div id="main_block">
+             <!-- Modal -->
+             <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+           
+     <!-- Modal content-->
+     <div class="modal-content">
+       <div class="modal-header" style="padding:35px 50px;">
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+       </div>
+       <div class="modal-body" style="padding:40px 50px;">
+         <form role="form">
+           <div class="form-group">
+             <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+             <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+             <p style="text-align: center; padding: .25em;" id="incorrect"></p>
+           </div>
+           <div class="form-group">
+             <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+             <input type="text" class="form-control" id="psw" placeholder="Enter password">
+           </div>
+           <div class="checkbox">
+             <label><input type="checkbox" value="" checked>Remember me</label>
+           </div>
+             <button type="button" class="btn btn-success btn-block" onclick="ValidationFunction()"><span class="glyphicon glyphicon-off"></span> Login</button>
+             <p style="margin:1em;text-align:center">Or login with :</p>
+             <button type="button" class="btn  btn-block google"><i class="fa fa-google"></i> Google</button>
+             <button type="button" class="btn btn-block facebook"><i class="fa fa-facebook"></i> Facebook</button>
+         </form>
+       </div>
+       <div class="modal-footer">
+         <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+         <p>Not a member? <a href="signup.html">Sign Up</a></p>
+         <p>Forgot <a href="#">Password?</a></p>
+       </div>
+       
+     </div>
+     <!-- End modal content-->
+   </div>
+ </div> 
+ <!-- End Modal-->
+            <div class="presentation">
+                <div>
+                    <h1>Is AI a danger for humanity ?</h1>
+                    <h3>Last activity : 3 hours ago</h3>
+                </div>
+                <input type="button" value="+ Add a new message" id="modal_button" data-toggle="modal" data-target="#ModalCenter"/>
+                    <!-- Modal -->
+                    <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            <h1 style="padding-left: 20px;">New message: </h1>
+                            
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">Message:</label>
+                                        <textarea class="form-control" id="message-text" style="overflow: auto;
+                                        resize: vertical;"></textarea>
+                                      </div>
+                                    <div class="form-group">
+                                      <label for="recipient-name" class="col-form-label">Tags:</label>
+                                      <input type="text" class="form-control" id="recipient-name">
+                                    </div>
+                                    
+                                  </form>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Submit Message</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="message">
+                <div class="autor">
+                    <h1>Autor's name</h1>
+                    Picture ? 
+                </div>
+                <div class="message_content">
+                    <h3>March 25th 2021 at 11:12 am</h3>
+                    <p>Content of the message here</p>
+                </div>
+            </div>
+            <div class="message">
+                <div class="autor">
+                    <h1>Autor's name</h1>
+                    Picture ? 
+                </div>
+                <div class="message_content">
+                    <h3>March 26th 2021 at 1:10 am</h3>
+                    <p>Content of the message here</p>
+                </div>
+            </div>
+            <div class="message">
+                <div class="autor">
+                    <h1>Autor's name</h1>
+                    Picture ? 
+                </div>
+                <div class="message_content">
+                    <h3>March 26th 2021 at 1:10 am</h3>
+                    <p>Content of the message here</p>
+                </div>
+            </div>
+            <div class="message">
+                <div class="autor">
+                    <h1>Autor's name</h1>
+                    Picture ? 
+                </div>
+                <div class="message_content">
+                    <h3>March 26th 2021 at 1:10 am</h3>
+                    <p>Content of the message here</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div id="copyright">
+                <h1>GoGoChat</h1>
+                <p>@GoGoChat 2021</p>
+            </div>
+            <div id="follow_us">
+                <h1>Follow us</h1>
+                <div id ="links">
+                        <a href="https://fr-fr.facebook.com/" title="Facebook"><img src="pictures/fb1.png" alt="Facebook" /></a>
+                        <a href="https://twitter.com/" title ="Twitter"><img src="pictures/twitter1.png" alt="Twitter" /></a>
+                        <a href="https://www.instagram.com/" title="Instagram"><img src="pictures/insta1.png" alt="Instagram" /></a>
+                </div>
+            </div>
+            <div id="contact">
+                    <h1>Contact</h1>
+                    <a href="mailto:nameforum@gmail.com" title="Send us an email !">gogochat@gmail.com</a>
+            </div>
+        </footer>
+            <script src="modal_login.js"></script>
+    </body>
+</html>

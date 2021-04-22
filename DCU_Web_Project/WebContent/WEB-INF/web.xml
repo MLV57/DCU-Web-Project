@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>DCU_Web_Project</display-name>
+  
+  <servlet>
+    <servlet-name>Filter_Servlet</servlet-name>
+    <servlet-class>Filter_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Filter_Servlet</servlet-name>
+    <url-pattern>/Filter_Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>new_Discussion_Servlet</servlet-name>
+    <servlet-class>new_Discussion_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>new_Discussion_Servlet</servlet-name>
+    <url-pattern>/new_Discussion_Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>discussions2messages_Servlet</servlet-name>
+    <servlet-class>discussions2messages_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>discussions2messages_Servlet</servlet-name>
+    <url-pattern>/discussions2messages_Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>new_message_servlet</servlet-name>
+    <servlet-class>new_message_servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>new_message_servlet</servlet-name>
+    <url-pattern>/new_message_servlet</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>index_login.html</welcome-file>
+    <welcome-file>index_login.htm</welcome-file>
+    <welcome-file>index_login.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
