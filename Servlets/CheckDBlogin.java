@@ -72,7 +72,9 @@ public class CheckDBlogin extends HttpServlet {
 		      }
 		      else{
 		          System.out.println("No customer registered with this  " + Pseudo);
-		      //Display an error message. 
+		      //Display an error message.
+			  String errorMessage = "No customer registered with this  " + Pseudo;
+			  out.println("alert(" + "'" + errorMessage + "'" + ");</script>");
 		      }
 		 
 	 }
