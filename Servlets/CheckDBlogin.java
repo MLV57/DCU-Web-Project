@@ -68,6 +68,7 @@ public class CheckDBlogin extends HttpServlet {
 		 if(stmt.getResultSet().next()){
 		      System.out.println("The user is already registered " + Pseudo);
 		      //Write code and redirect the user on main page
+			 request.getRequestDispatcher("index.html").include(request, response);
 		      }
 		      else{
 		          System.out.println("No customer registered with this  " + Pseudo);
