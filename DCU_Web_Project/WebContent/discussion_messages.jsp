@@ -107,8 +107,24 @@
  <!-- End Modal-->
             <div class="presentation">
                 <div>
-                    <h1>Is AI a danger for humanity ?</h1>
+                
+                   <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
+				         url = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb"
+				         user = "ee417"  password = "ee417"/>
+				 
+				      <sql:query dataSource = "${snapshot}" var = "result">
+						SELECT * FROM testdb.discussion_table_web WHERE discussion_id =${discussion_id}     </sql:query>
+                
+                <c:forEach var = "row" items = "${result.rows}">
+                
+                     <h1><c:out value = "${row.title}"/></h1>
                     <h3>Last activity : 3 hours ago</h3>
+                    
+                        </c:forEach>
+                        
+           
+						
+						
                 </div>
                 <input type="button" value="+ Add a new message" id="modal_button" data-toggle="modal" data-target="#ModalCenter"/>
                 
@@ -188,7 +204,7 @@
                     Picture ? 
                 </div>
                 <div class="message_content">
-                    <h3>March 25th 2021 at 11:12 am</h3>
+                    <h3><c:out value = "${row.date}"/></h3>
                     <p><c:out value = "${row.content}"/></p>
                 </div>
             </div>
