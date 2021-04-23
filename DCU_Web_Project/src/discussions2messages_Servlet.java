@@ -67,6 +67,11 @@ public class discussions2messages_Servlet extends HttpServlet {
        request.setAttribute("discussion_id", disc_id);
        RequestDispatcher requestDispatcher = request.getRequestDispatcher("discussion_messages.jsp");
        requestDispatcher.forward(request, response);
+       
+       String disc_id2 = request.getParameter("discussion_id");
+       request.setAttribute("discussion_id", disc_id2);
+       RequestDispatcher requestDispatcher2 = request.getRequestDispatcher("AI2.jsp");
+       requestDispatcher2.forward(request, response);
 	}
 
 }
