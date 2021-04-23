@@ -8,6 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -68,16 +71,20 @@ public class new_message_servlet extends HttpServlet {
        String disc_id = request.getParameter("discussion_id");
        String user_id = request.getParameter("user_id");
        
+       Date dateobj = new Date();
+       String date = String.valueOf(dateobj);
+       
        
 	 try {
 		 //Pre statement to insert account into the thomas_table_accounts table
 		 PreparedStatement pstmt = con.prepareStatement(
-				  "INSERT INTO testdb.messages_discussion_table_web (content,disc_id,user_id) VALUES (?,?,?)");
+				  "INSERT INTO testdb.messages_discussion_table_web (content,disc_id,user_id,date) VALUES (?,?,?,?)");
 				  pstmt.clearParameters();       // Clears any previous parameters
 				//changing "?" by form information
 				  pstmt.setString(1, message);
 				  pstmt.setString(2, disc_id);
 				  pstmt.setString(3, user_id);
+				  pstmt.setString(4, date);
 				  
 				  pstmt.executeUpdate();
 				  System.out.println("\nMessage uploaded" + message);
