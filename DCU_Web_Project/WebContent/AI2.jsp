@@ -180,7 +180,8 @@
 				 
 				      <sql:query dataSource = "${snapshot}" var = "result">
 						SELECT * FROM testdb.discussion_table_web     </sql:query>
-						<c:forEach var = "row" items = "${result.rows}">
+						<c:forEach var = "row" items = "${result.rows}"
+						>
 						<c:set var = "rowTags" value = "${row.tags}"/>
 						<c:set var = "splitTags" value = "${fn:split(rowTags, ';')}" />
 						<div class="discussion" data-value=${row.discussion_id}>
@@ -197,8 +198,8 @@
 		                        <h3><c:out value = "${row.messages}"/> messages</h3>
 		                    </div>
 		                    <div class="discussion_part_3">
-		                    <h3>Last message by XXXXX</h3>
-		                        <h3>About 3 hours ago</h3> 
+		                    <h3>Last updated:</h3>
+		                        <h3><c:out value = "${row.date}"/></h3>
 		                    </div>
 		                </div>
 		         			</c:forEach>
