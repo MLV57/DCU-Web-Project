@@ -8,6 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +23,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/new_Discussion_Servlet")
 public class new_Discussion_Servlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
+	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -64,18 +69,24 @@ doGet(request, response);
             System.exit(0);
         }   
 
+        
         //Storing parameters from form before using them in SQL statement 
        String title = request.getParameter("title");
        String tags = request.getParameter("tags");
+     
+       DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+       Date dateobj = new Date();
+       String date = String.valueOf(dateobj);
        
 	 try {
 		 //Pre statement to insert account into the thomas_table_accounts table
 		 PreparedStatement pstmt = con.prepareStatement(
-				  "INSERT INTO testdb.discussion_table_web (title,tags) VALUES (?,?)");
+				  "INSERT INTO testdb.discussion_table_web (title,tags,date) VALUES (?,?,?)");
 				  pstmt.clearParameters();       // Clears any previous parameters
 				//changing "?" by form information
 				  pstmt.setString(1, title);
 				  pstmt.setString(2, tags);
+				  pstmt.setString(3, date);
 				  
 				  pstmt.executeUpdate();
 
