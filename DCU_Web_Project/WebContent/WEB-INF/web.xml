@@ -35,6 +35,33 @@
     <url-pattern>/new_message_servlet</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>insertDBregisterform</servlet-name>
+    <servlet-class>insertDBregisterform</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>insertDBregisterform</servlet-name>
+    <url-pattern>/insertDBregisterform</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>logoutServlet</servlet-name>
+    <servlet-class>logoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logoutServlet</servlet-name>
+    <url-pattern>/logoutServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CheckDBlogin</servlet-name>
+    <servlet-class>CheckDBlogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckDBlogin</servlet-name>
+    <url-pattern>/CheckDBlogin</url-pattern>
+  </servlet-mapping>
+  
   <welcome-file-list>
     <welcome-file>index_login.html</welcome-file>
     <welcome-file>index_login.htm</welcome-file>
