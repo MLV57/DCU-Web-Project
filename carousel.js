@@ -2,29 +2,24 @@ class Carousel {
     constructor(element, options = {}){
         this.element = element;
         this.options = Object.assign({}, {
-            slidesToScroll: 1, //number of items that will move on button click
-            slidesVisible: 1, // number of items displayed 
-            loop : true // will it loop when going too far or just stop ?
+            slidesToScroll: 1, //default number of items that will move on button click
+            slidesVisible: 1, // default number of items displayed 
         }, options);
-        let children = [].slice.call(element.children); //list of children
+        let children = [].slice.call(element.children); //list of children of original content
         this.isMobile = false; //will be used for smartphone screen display
         this.currentItem = 0;
         this.root = this.createDivWithClass('carousel'); //creation of the carousel
-        this.container = this.createDivWithClass('carousel_container');
-        this.root.appendChild(this.container);
+        this.container = this.createDivWithClass('carousel_container'); 
+        this.root.appendChild(this.container); //add carousel container to the carousel
         this.element.appendChild(this.root);
-        this.moveCallbacks = [];
         this.items = children.map((child)=> { //get items from original htlm content and puts it in the carousel
-            let item = this.createDivWithClass('carousel_item');
+            let item = this.createDivWithClass('carousel_item'); // as a courel item
             item.appendChild(child);
             this.container.appendChild(item);
             return item;
         });
         this.setStyle();
         this.creatNavigation();
-        
-        //this.moveCallbacks.forEach(cb => cb(0))
-        //this.createPagination(); //this feature is useless as it's not working properly
         this.onWindowResize();
         window.addEventListener('resize', this.onWindowResize.bind(this)); //for the mobile display function
         debugger
@@ -42,9 +37,10 @@ class Carousel {
         let prevbutton = this.createDivWithClass('carousel_prev');
         this.root.appendChild(nextbutton);
         this.root.appendChild(prevbutton);
-        nextbutton.addEventListener('click', this.next.bind(this));//bind context to use it in next function
+        nextbutton.addEventListener('click', this.next.bind(this));
+        //bind context to use it in next function 
+        //same for prev button
         prevbutton.addEventListener('click', this.prev.bind(this)); 
-       
        
     }
 
@@ -55,25 +51,6 @@ class Carousel {
 
     prev() {
         this.goToItem(this.currentItem - this.slidesToScroll);
-    }
-
-    createPagination(){ //pagination process, didn't succeed to set an active button 
-        let pagination = this.createDivWithClass('carousel_pagination');
-        let buttons = [];
-        this.root.appendChild(pagination);
-        for (let i = 0;i< this.items.length; i = i + this.options.slidesVisible){
-            let button = this.createDivWithClass('carousel_pagination_button');
-            button.addEventListener('click', ()=> this.goToItem(i));
-            pagination.appendChild(button);
-            buttons.push(button);
-        }
-        this.onMove(index => {
-            let activeButton = buttons[Math.floor(index/this.options.slidesToScroll)];
-            if (activeButton){
-                buttons.forEach(button => button.classlist.remove('carousel_pagination_button-active'));
-                activeButton.classlist.add('.carousel_pagination_button-active');
-            }
-        });
     }
 
     goToItem (index) {

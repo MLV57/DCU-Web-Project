@@ -127,14 +127,7 @@
 						
                 </div>
                 <input type="button" value="+ Add a new message" id="modal_button" data-toggle="modal" data-target="#ModalCenter"/>
-                
-                
-                
-                
-                
-                
-                
-                
+
                 
                     <!-- Modal -->
                     <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
@@ -173,17 +166,7 @@
                         </div>
                         </div>
                     </div>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+  
                     
             </div>
             <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"

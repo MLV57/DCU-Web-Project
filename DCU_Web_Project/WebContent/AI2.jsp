@@ -11,10 +11,13 @@
         <meta charset="utf-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="AI.css" />
-        <script src="jquery-3.5.1.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
         <script src="AI.js"></script>
+        <link rel="stylesheet" href="modal_login.css" />
         <title>Artificial Intelligence</title>
+        <link rel="stylesheet" href="AI.css" />
     </head>
     
     <body>
@@ -44,9 +47,7 @@
                     <input type="text" name="research"  size=50 placeholder="Type your research here" />
                     <input type="submit" value="Search"/>
                 </div>
-                <div class="button">
-                    <a href="login.html">Login</a>
-                </div>
+                <button type="button" class="button" id="myBtn" style="color: white;">Login>Login</button>
                 <div class="button">
                     <a href="signup.html">Sign up</a>
                 </div>
@@ -57,6 +58,48 @@
         </header>
 
         <div id="main_block">
+        
+        <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+           
+     <!-- Modal content-->
+     <div class="modal-content">
+       <div class="modal-header" style="padding:35px 50px;">
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+       </div>
+       <div class="modal-body" style="padding:40px 50px;">
+         <form role="form">
+           <div class="form-group">
+             <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+             <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+             <p style="text-align: center; padding: .25em;" id="incorrect"></p>
+           </div>
+           <div class="form-group">
+             <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+             <input type="text" class="form-control" id="psw" placeholder="Enter password">
+           </div>
+           <div class="checkbox">
+             <label><input type="checkbox" value="" checked>Remember me</label>
+           </div>
+             <button type="button" class="btn btn-success btn-block" onclick="ValidationFunction()"><span class="glyphicon glyphicon-off"></span> Login</button>
+             <p style="margin:1em;text-align:center">Or login with :</p>
+             <button type="button" class="btn  btn-block google" ><i class="fa fa-google"></i> Google</button>
+             <button type="button" class="btn btn-block facebook"><i class="fa fa-facebook"></i> Facebook</button>
+         </form>
+       </div>
+       <div class="modal-footer">
+         <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+         <p>Not a member? <a href="signup.html">Sign Up</a></p>
+         <p>Forgot <a href="#">Password?</a></p>
+       </div>
+       
+     </div>
+     <!-- End modal content-->
+   </div>
+ </div> 
+ <!-- End Modal-->
             <aside>
                 <h1>- Filters -</h1>
                 <form id="filter_form" action="Filter_Servlet" method="post">
@@ -75,6 +118,14 @@
                     </div>
                     <input type="submit" value="Apply"/>
                 </form>
+                <input type="button" id="reset_button" value="Reset filters"/>
+                <script>
+                $('#reset_button').click(function() {
+                	window.location.replace("AI2.jsp");
+                });
+                </script>
+                
+
             </aside>
 
             <section>
@@ -153,7 +204,7 @@
 						<c:forEach var = "row" items = "${result.rows}">
 						<c:set var = "rowTags" value = "${row.tags}"/>
 						<c:set var = "splitTags" value = "${fn:split(rowTags, ';')}" />
-						<div class="discussion">
+						<div class="discussion" data-value=${row.discussion_id}>
 		                    <div class="discussion_part_1">
 		                        <h1><c:out value = "${row.title}"/></h1>
 		                        <div class="all_tags">
@@ -249,5 +300,6 @@
                 $( "#tag_form" ).submit();
             });
         </script>
+        <script src="modal_login.js"></script>
     </body>
 </html>
