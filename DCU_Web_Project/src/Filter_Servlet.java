@@ -49,7 +49,6 @@ public class Filter_Servlet extends HttpServlet {
         String JDBCUrl = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb";
         String username1 = "ee417";
         String password1 = "ee417";
-        PrintWriter out = response.getWriter();
         
         try {
             System.out.println("\nConnecting to the SSD Database......");
@@ -80,6 +79,7 @@ public class Filter_Servlet extends HttpServlet {
        request.setAttribute("tag", tag);
        request.setAttribute("name", name);
        request.setAttribute("order", order);
+       //forward every parameters in a request dispatcher as the sql query is made in the AI2.jsp file
        RequestDispatcher requestDispatcher = request.getRequestDispatcher("AI2.jsp");
        requestDispatcher.forward(request, response);
 

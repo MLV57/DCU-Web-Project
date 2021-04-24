@@ -47,6 +47,7 @@
                     <input type="text" name="research"  size=50 placeholder="Type your research here" />
                     <input type="submit" value="Search"/>
                 </div>
+                <!-- Button used to launch login modal -->
                 <button type="button" class="button" id="myBtn" style="color: white;">Login>Login</button>
                 <div class="button">
                     <a href="signup.html">Sign up</a>
@@ -59,11 +60,9 @@
 
         <div id="main_block">
         
-        <!-- Modal -->
+        <!-- Login Modal -->
             <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog">
-           
-     <!-- Modal content-->
      <div class="modal-content">
        <div class="modal-header" style="padding:35px 50px;">
          <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -96,10 +95,9 @@
        </div>
        
      </div>
-     <!-- End modal content-->
    </div>
  </div> 
- <!-- End Modal-->
+ <!-- End of login Modal-->
             <aside>
                 <h1>- Filters -</h1>
                 <form id="filter_form" action="Filter_Servlet" method="post">
@@ -120,6 +118,7 @@
                 </form>
                 <input type="button" id="reset_button" value="Reset filters"/>
                 <script>
+                //this allows to correctly reload the page, if the user wants to have all the discussions again
                 $('#reset_button').click(function() {
                 	window.location.replace("AI2.jsp");
                 });
@@ -134,6 +133,8 @@
                     <h2>Here, come and share your ideas about AI</h2>
                     <h3>3 discussions</h3>
                 </div>
+                
+                <!-- CREATE A NEW CONVERSATION PART -->
                 <input type="button" style="margin-top: 20px;margin-bottom: 20px;" value="+ Create a new discussion" id="modal_button" data-toggle="modal" data-target="#ModalCenter"/>
                 <!-- Modal -->
                 <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
@@ -158,8 +159,6 @@
                                   <label for="recipient-name" class="col-form-label">Tags: (separate them with ;)</label>
                                   <input name = "tags" type="text" class="form-control">
                                 </div>
-                                
-                              
                         </div>
                         <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Submit Discussion</button>
@@ -168,6 +167,12 @@
                     </div>
                     </div>
                 </div>
+                <!-- end of discussion creation -->
+                
+                <!-- DISCUSSIONS DISPLAY -->
+                
+                <!-- after applying filter part -->
+                	<!-- get request elements as strings -->
                 <% String filtered=request.getParameter("filtered");
                 String tag=request.getParameter("tag");
                 String name=request.getParameter("name");
@@ -180,7 +185,7 @@
 			        <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
 				         url = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb"
 				         user = "ee417"  password = "ee417"/>
-				 <c:choose>
+				 <c:choose> <!-- depending on what was forwarded in the filter request, the sql query is different -->
 				    <c:when test="${tag!='' and name!=''}">
 				        <sql:query dataSource = "${snapshot}" var = "result">
 				      		
@@ -224,11 +229,13 @@
 		                </div>
 		         			</c:forEach>
 				</c:when>    
+				
+				<!-- Before applying filters part -->
 			    <c:otherwise>
 		                <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
 				         url = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb"
 				         user = "ee417"  password = "ee417"/>
-				 
+				 <!-- We load everything from the database -->
 				      <sql:query dataSource = "${snapshot}" var = "result">
 						SELECT * FROM testdb.discussion_table_web     </sql:query>
 						<c:forEach var = "row" items = "${result.rows}"
@@ -276,21 +283,25 @@
                     <h1>Contact</h1>
                     <a href="mailto:nameforum@gmail.com" title="Send us an email !">gogochat@gmail.com</a>
             </div>
+            <!-- launch filter servlet when cliking on tag, with tag content as parameter -->
             <form id="tag_form" action="Filter_Servlet" method="post">
-			  <input type="hidden" id="tag" name="tag" value="car">
+			  <input type="hidden" id="tag" name="tag" value="">
 			  <input type="hidden" id="name" name="name" value="">
 			</form>
+			
+			<!-- Launch discussions 2 messages servlet with discussion id as a parameter -->
 			<form id="messages_form" action="discussions2messages_Servlet" method="post">
 			  <input type="hidden" id="discussion_id_input" name="discussion_id" value="">
 			</form>
         </footer>
         <script>
+        //add click event listener to discussion divs to launch the messages_form
             $(".discussion").click(function(){
                 var x = $(this).data('value');
                 $("#discussion_id_input").val(x)
                 $( "#messages_form" ).submit();
             });
-            
+          //add click event listener to tag divs to launch the tag_form
             $(".tag").click(function (e) {
                 e.stopPropagation(); //Prevents the event from bubbling up the DOM tree, 
                 //preventing any parent handlers from being notified of the event. 

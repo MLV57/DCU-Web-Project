@@ -64,11 +64,10 @@
         </div>
 
         <div id="main_block">
-             <!-- Modal -->
+             <!-- Login Modal -->
              <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog">
-           
-     <!-- Modal content-->
+                
      <div class="modal-content">
        <div class="modal-header" style="padding:35px 50px;">
          <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -101,35 +100,30 @@
        </div>
        
      </div>
-     <!-- End modal content-->
    </div>
  </div> 
- <!-- End Modal-->
+ <!-- End of login Modal-->
             <div class="presentation">
                 <div>
-                
+                <!-- connection to database -->
                    <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
 				         url = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb"
 				         user = "ee417"  password = "ee417"/>
-				 
+				 <!-- fetch every message containing the good discussion id -->
 				      <sql:query dataSource = "${snapshot}" var = "result">
 						SELECT * FROM testdb.discussion_table_web WHERE discussion_id =${discussion_id}     </sql:query>
-                
+                <!-- display discussion title -->
                 <c:forEach var = "row" items = "${result.rows}">
                 
                      <h1><c:out value = "${row.title}"/></h1>
                     <h3>Last activity : 3 hours ago</h3>
                     
                         </c:forEach>
-                        
-           
-						
-						
                 </div>
                 <input type="button" value="+ Add a new message" id="modal_button" data-toggle="modal" data-target="#ModalCenter"/>
 
                 
-                    <!-- Modal -->
+                    <!-- Adding a new message Modal part-->
                     <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -169,13 +163,10 @@
   
                     
             </div>
-            <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
-				         url = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb"
-				         user = "ee417"  password = "ee417"/>
-			<sql:query dataSource = "${snapshot}" var = "message">
-				      		
-						SELECT * FROM messages_discussion_table_web WHERE disc_id =${discussion_id}    </sql:query>
+            
+			<!-- browsing messages in database and displaying content in divs -->
 			<c:forEach var = "row" items = "${message.rows}">
+			<!-- second sql query to see who wrote the message -->
 				<sql:query dataSource = "${snapshot}" var = "user">
 				      		
 						SELECT * FROM user_table_web WHERE user_id = ${row.user_id};    </sql:query>
