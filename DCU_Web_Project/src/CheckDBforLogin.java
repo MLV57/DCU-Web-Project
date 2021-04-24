@@ -16,38 +16,46 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CheckDBlogin
+ * Servlet implementation class CheckDBforLogin
  */
-@WebServlet("/CheckDBlogin")
-public class CheckDBlogin extends HttpServlet {
+@WebServlet("/CheckDBforLogin")
+public class CheckDBforLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckDBlogin() {
+    public CheckDBforLogin() {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    /**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+    	response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 		Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
-        String JDBCUrl = "jdbc:mysql://localhost:3306";
-        String username = "root";
-        String password = "OnigiriSan";
+        String JDBCUrl = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb";
+        String username1 = "ee417";
+        String password1 = "ee417";
         PrintWriter out = response.getWriter();
         
         try {
             System.out.println("\nConnecting to the SSD Database......");
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection(JDBCUrl, username, password);
+            con = DriverManager.getConnection(JDBCUrl, username1, password1);
         }
         catch (Exception e) {
             System.out.println("\nAn error has occurred during the connection phase!  This is most likely due to your CLASSPATH being set wrong and the"

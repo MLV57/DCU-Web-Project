@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>DCU_Web_Project</display-name>
-  
+
   <servlet>
     <servlet-name>Filter_Servlet</servlet-name>
     <servlet-class>Filter_Servlet</servlet-class>
@@ -34,7 +34,7 @@
     <servlet-name>new_message_servlet</servlet-name>
     <url-pattern>/new_message_servlet</url-pattern>
   </servlet-mapping>
-  
+
   <servlet>
     <servlet-name>insertDBregisterform</servlet-name>
     <servlet-class>insertDBregisterform</servlet-class>
@@ -43,7 +43,7 @@
     <servlet-name>insertDBregisterform</servlet-name>
     <url-pattern>/insertDBregisterform</url-pattern>
   </servlet-mapping>
-  
+
   <servlet>
     <servlet-name>logoutServlet</servlet-name>
     <servlet-class>logoutServlet</servlet-class>
@@ -52,16 +52,16 @@
     <servlet-name>logoutServlet</servlet-name>
     <url-pattern>/logoutServlet</url-pattern>
   </servlet-mapping>
-  
+
   <servlet>
-    <servlet-name>CheckDBlogin</servlet-name>
-    <servlet-class>CheckDBlogin</servlet-class>
+    <servlet-name>CheckDBforLogin</servlet-name>
+    <servlet-class>CheckDBforLogin</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>CheckDBlogin</servlet-name>
-    <url-pattern>/CheckDBlogin</url-pattern>
+    <servlet-name>CheckDBforLogin</servlet-name>
+    <url-pattern>/CheckDBforLogin</url-pattern>
   </servlet-mapping>
-  
+
   <welcome-file-list>
     <welcome-file>index_login.html</welcome-file>
     <welcome-file>index_login.htm</welcome-file>
