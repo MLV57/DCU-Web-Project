@@ -12,6 +12,15 @@
         <link rel="stylesheet" href="modal_login.css" />
         <link rel="stylesheet" href="index.css" />
         <script src="index.js"></script>
+        <!-- ChatBot -->
+    <link rel="stylesheet" type="text/css" href="responsive.css">
+
+    <!-- ChatBot -->
+    <link rel="stylesheet" type="text/css" href="jquery.convform.css">
+    
+    <script type="text/javascript" src="jquery.convform.js"></script>
+    <script type="text/javascript" src="custom.js"></script>
+    <!-- ChatBot -->
 
         <title>Home page</title>
     </head>
@@ -257,6 +266,54 @@
                 </div>
             </div>                
         </div>
+            
+            <!-- ChatBot -->
+    <div class="chat_icon">
+        <i href=""><img src="chatgogo.jpg" alt="Logo" /></i>
+    </div>
+
+    <div class="chat_box">
+        <div class="my-conv-form-wrapper">
+            <form action="" method="GET" class="hidden">
+
+                <select data-conv-question="Hello! How can I help you" name="category">
+			<option value="Technology">Technology ?</option>
+			<option value="Sciences">Sciences ?</option>
+			<option value="Art">Art ?</option>
+			<option value="Literature">Literature ?</option>
+		  </select>
+
+                <div data-conv-fork="category">
+                    <div data-conv-case="Technology">
+                        <input type="text" name="TechName" data-conv-question="Tech type (AI&Cryptography)">
+                    </div>
+                    <div data-conv-case="Sciences">
+                        <input type="text" name="SciName" data-conv-question="Astronomy & Biology">
+                    </div>
+                    <div data-conv-case="Art">
+                        <input type="text" name="ArtName" data-conv-question="Artwork type (Painting&Sculpture)">
+                    </div>
+                    <div data-conv-case="Literature" data-conv-fork="first-question2">
+                        <input type="text" name="LitName" data-conv-question="Poetry & Theater">
+                    </div>
+                </div>
+
+                <input type="text" name="name" data-conv-question="Please, Enter your name">
+
+                <input type="text" data-conv-question="Hi {name}, <br> It's a pleasure to meet you." data-no-answer="true">
+
+                <input data-conv-question="Enter your e-mail" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" type="email" name="email" required placeholder="What's your e-mail?">
+
+                <select data-conv-question="Please Confirm">
+			
+                <option value="Yes">Confirm</option>
+
+                </select>
+
+            </form>
+        </div>
+    </div>
+    <!-- ChatBot -->
         
         <footer>
             <div id="copyright">
