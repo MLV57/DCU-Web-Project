@@ -51,7 +51,7 @@
                 <nav>
                     <ul>
                         <li><a href="topics.jsp<%= urlRedirect %>">Topics</a></li>
-                        <li><a href="about.html<%= urlRedirect %>">About us</a></li>
+                        <li><a href="about.jsp<%= urlRedirect %>">About us</a></li>
                         <li><a id="menuBtn" onclick="openNav()">**Special event**</a></li>
                     </ul>
                 </nav>  
@@ -187,7 +187,6 @@
                                 </div>
                         </div>
                         <div class="modal-footer">
-                        <input type="hidden"  name="topic_id" value="${topic_id}">
                         <button type="submit" class="btn btn-primary">Submit Discussion</button>
                         </div>
                         </form>

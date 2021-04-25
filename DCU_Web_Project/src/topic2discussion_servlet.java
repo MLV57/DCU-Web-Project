@@ -44,7 +44,7 @@ public class topic2discussion_servlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       String topic_id= request.getParameter("topic_id");
+       String topic_id= request.getParameter("topic_id");;
        request.setAttribute("topic_id", topic_id);
        RequestDispatcher requestDispatcher = request.getRequestDispatcher("AI2.jsp");
        requestDispatcher.forward(request, response);
