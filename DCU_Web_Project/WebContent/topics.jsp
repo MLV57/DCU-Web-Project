@@ -287,15 +287,15 @@
             slidesVisible: 3,
         })
         </script>
-        <form id="hidden_form" action="topic2discussion_servlet" method="post">
-            <input id="topic_id" type="hidden" value="">
+         <form id="hidden_form" action="topic2discussion_servlet" method="post">
+            <input id="topic_id" type="hidden" name="topic_id" value="">
         </form>
         <script>
             //function that make a div clickable and redirecting to the link contained in the a component 
             $(".topic").click(function() {
             	var x = $(this).data('value');
-                $("#topic_id").val(x)
-                $( "#hidden_form" ).submit();
+                $("#topic_id").val(x);
+                $("#hidden_form").submit();
             });
         </script>
     </body>

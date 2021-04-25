@@ -184,7 +184,7 @@
                     Picture ? 
                 </div>
                 <div class="message_content">
-                    <h3><c:out value = "${row.date}"/></h3>
+                    <h3><c:out value = "${row.post_date}"/></h3>
                     <p><c:out value = "${row.content}"/></p>
                 </div>
             </div>

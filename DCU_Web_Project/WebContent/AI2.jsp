@@ -136,6 +136,7 @@
                         <input type="radio" id="old" name="sort_oldest"/>
                         <label for="old">From oldest to more recent</label>
                     </div>
+                    <input type="hidden" id="topic_id" name="topic_id" value="${topic_id}">
                     <input type="submit" value="Apply"/>
                 </form>
                 <input type="button" id="reset_button" value="Reset filters"/>
@@ -150,9 +151,18 @@
             </aside>
 
             <section>
+                <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
+				         url = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb"
+				         user = "ee417"  password = "ee417"/>
+			<sql:query dataSource = "${snapshot}" var = "topic">
+				      		
+						SELECT * FROM groupH_topics_table WHERE topic_id = ${topic_id}   </sql:query>
+            <section>
                 <div class="topic_presentation">
-                    <h1>Artificial Intelligence</h1>
-                    <h2>Here, come and share your ideas about AI</h2>
+                <c:forEach var = "topic_row" items = "${topic.rows}">
+                    <h1>${topic_row.title}</h1>
+                    <h2>${topic_row.descr}</h2>
+                </c:forEach>
                     <h3>3 discussions</h3>
                 </div>
                 
@@ -204,26 +214,24 @@
                 <c:choose>
 			    <c:when test="${filtered=='1'}">
 			    
-			        <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
-				         url = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb"
-				         user = "ee417"  password = "ee417"/>
+			        
 				 <c:choose> 
 				    <c:when test="${tag!='' and name!=''}">
 				        <sql:query dataSource = "${snapshot}" var = "result">
 				      		
-						SELECT * FROM groupH_discussion_table WHERE tags LIKE '%${tag}%' AND title LIKE '%${name}%';    </sql:query>
+						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} AND tags LIKE '%${tag}%' AND title LIKE '%${name}%' ;    </sql:query>
 				        <br />
 				    </c:when>
 				    <c:when test="${tag!='' and name==''}">
 				        <sql:query dataSource = "${snapshot}" var = "result">
 				      		
-						SELECT * FROM groupH_discussion_table WHERE tags LIKE '%${tag}%';    </sql:query>
+						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} AND tags LIKE '%${tag}%';    </sql:query>
 				        <br />
 				    </c:when> 
 				    <c:when test="${tag=='' and name!=''}">
 				        <sql:query dataSource = "${snapshot}" var = "result">
 				      		
-						SELECT * FROM groupH_discussion_table WHERE title LIKE '%${name}%';    </sql:query> 
+						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} AND title LIKE '%${name}%';    </sql:query> 
 				        <br />
 				    </c:when>         
 				</c:choose>
@@ -259,7 +267,7 @@
 				         user = "ee417"  password = "ee417"/>
 				 <%-- We load everything from the database --%>
 				      <sql:query dataSource = "${snapshot}" var = "result">
-						SELECT * FROM testdb.groupH_discussion_table     </sql:query>
+						SELECT * FROM testdb.groupH_discussion_table WHERE topic_id = ${topic_id}   </sql:query>
 						<c:forEach var = "row" items = "${result.rows}"
 						>
 						<c:set var = "rowTags" value = "${row.tags}"/>
@@ -309,6 +317,7 @@
             <form id="tag_form" action="Filter_Servlet" method="post">
 			  <input type="hidden" id="tag" name="tag" value="">
 			  <input type="hidden" id="name" name="name" value="">
+			  <input type="hidden" id="topic_id" name="topic_id" value="${topic_id}">
 			</form>
 			
 			<!-- Launch discussions 2 messages servlet with discussion id as a parameter -->

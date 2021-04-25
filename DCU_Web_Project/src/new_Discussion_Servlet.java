@@ -73,6 +73,7 @@ doGet(request, response);
         //Storing parameters from form before using them in SQL statement 
        String title = request.getParameter("title");
        String tags = request.getParameter("tags");
+       String topic_id = request.getParameter("topic_id");
      
        DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
        Date dateobj = new Date();
@@ -81,12 +82,13 @@ doGet(request, response);
 	 try {
 		 //Pre statement to insert account into the thomas_table_accounts table
 		 PreparedStatement pstmt = con.prepareStatement(
-				  "INSERT INTO testdb.groupH_discussion_table (title,tags,date) VALUES (?,?,?)");
+				  "INSERT INTO testdb.groupH_discussion_table (title,tags,date) VALUES (?,?,?,?)");
 				  pstmt.clearParameters();       // Clears any previous parameters
 				//changing "?" by form information
 				  pstmt.setString(1, title);
 				  pstmt.setString(2, tags);
 				  pstmt.setString(3, date);
+				  pstmt.setString(4, topic_id);
 				  
 				  pstmt.executeUpdate();
 
