@@ -336,7 +336,7 @@
                 e.stopPropagation(); //Prevents the event from bubbling up the DOM tree,
                 //preventing any parent handlers from being notified of the event.
                 //In this case, it allows us to have a clickable div with another clickable div inside
-                var x = $("#tag123").text();
+                var x = $(this).text();
     			$("#tag").val(x);
                 $( "#tag_form" ).submit();
             });

@@ -175,11 +175,13 @@
 			<!-- second sql query to see who wrote the message -->
 				<sql:query dataSource = "${snapshot}" var = "user">
 
-						SELECT * FROM groupH_user_table WHERE user_id = ${row.user_id};    </sql:query>
+				      		
+						SELECT * FROM groupH_user WHERE user_id = ${row.user_id};    </sql:query>
+
 				<div class="message">
                 <div class="autor">
                 <c:forEach var = "row2" items = "${user.rows}">
-                    <h1>${row2.pseudo}</h1>
+                    <h1>${row2.Username}</h1>
                     </c:forEach>
                     Picture ?
                 </div>

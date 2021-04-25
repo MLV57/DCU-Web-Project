@@ -66,15 +66,14 @@ public class Filter_Servlet extends HttpServlet {
     	   order="";
        }
        
-       out.println("bite : "+old + " , " + recent + " , " + order );
        request.setAttribute("filtered", "1");
        request.setAttribute("tag", tag);
        request.setAttribute("name", name);
        request.setAttribute("topic_id", topic_id);
        request.setAttribute("order", order);
        //forward every parameters in a request dispatcher as the sql query is made in the AI2.jsp file
-      /* RequestDispatcher requestDispatcher = request.getRequestDispatcher("AI2.jsp");
-       requestDispatcher.forward(request, response);*/
+     RequestDispatcher requestDispatcher = request.getRequestDispatcher("AI2.jsp");
+       requestDispatcher.forward(request, response);
 
 	}
 
