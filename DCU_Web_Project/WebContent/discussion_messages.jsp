@@ -149,13 +149,7 @@
                                         resize: vertical;"></textarea>
                                       </div>
                                       <input type="hidden" id="discussion_id" name="discussion_id" value=${discussion_id}>
-                                    <input type="hidden" id="user_id" name="user_id" value="1">
-                                    <!--
-                                    //////////////////////////////////////////////////////
-
-                                   USER_ID MUST BE CHANGED WHEN IDENTIFICATION THROUGH PAGES WILL BE DONE
-
-                                     -->
+                                    <input type="hidden" id="user_id" name="user_id" value="${id}">
 
                             </div>
                             <div class="modal-footer">

@@ -108,22 +108,6 @@
                 <form id="filter_form" action="Filter_Servlet" method="post">
                     <label id="tag_label" for="tag">By tag : </label>
                     <input id="tag_input" type="text" name="tag"  placeholder="Enter a tag..." />
-			<script type="text/javascript">
-             /*
-                   		var filter = getURLVariable("id");
-				document.getElementById("tag_input").setAttribute('value',filter);
-
-				function getURLVariable(variable)
-				 {
-					var query = window.location.search.substring(1);
-					var vars = query.split("&");
-						for (var i=0;i<vars.length;i++) {
-						           var pair = vars[i].split("=");
-						           if(pair[0] == variable){return pair[1];}
-						 }
-						         return(false);
-				}*/
-				</script>
 
                     <label for="name">By name : </label>
                     <input type="text" name="name"  placeholder="Enter a word..." />
@@ -144,7 +128,6 @@
 
             </aside>
 
-            <section>
                 <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
 				         url = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb"
 				         user = "ee417"  password = "ee417"/>
@@ -248,13 +231,7 @@
 		                            </c:forEach>
 		                        </div>
 		                    </div>
-		                    <div class="discussion_part_2">
-		                        <h3><c:out value = "${row.messages}"/> messages</h3>
-		                    </div>
-		                    <div class="discussion_part_3">
-		                    <h3>Last message by XXXXX</h3>
-		                        <h3>About 3 hours ago</h3>
-		                    </div>
+		                    
 		                </div>
 		         			</c:forEach>
 				</c:when>
