@@ -23,7 +23,18 @@
     </head>
     
     <body>
-
+	<% String firstName = request.getParameter("firstName"); //email of the current user 
+		   String lastName = request.getParameter("lastName"); //email of the current user
+	       String userSession = null,urlRedirect = null;
+	       if (firstName != null && lastName !=null){
+	    	   userSession = "<div class='session'>"+firstName + " "+lastName+"<div class='sessionButton'><div class='button'><a href='profil.jsp'>My profil</a></div><div class='button'><a href='index.jsp'>Logout</a></div></div></div>"; //display my profil and logout button if the user is connected 
+	    	   urlRedirect = "?firstName="+response.encodeURL(firstName)+"&lastName="+lastName; //string appended to the link to pages accessible by url rewriting 
+	       }
+	       else {
+	    	   userSession = "<button type='button' class='button' id='myBtn' style='color: white;'>Login</button><div class='button'><a href='signup.jsp'>Sign up</a></div>"; //if the user isn't logged in display the login button 
+	    	   urlRedirect = ""; //no info to deliver to servlet 
+	       }  
+		 %>
         <div id="dyanamicMenu" class="dyanamicMenu">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <h1>**</h1>
@@ -32,16 +43,16 @@
             <h2>Be in with a chance to win a holiday for two to a destination of your choice !</h2>
             <h2>You just have to fill out a form to participate !</h2>
             <h1>Enter Our Competition !</h1>
-            <a href="competition.html">=> Click HERE <=</a>
+            <a href="competition.jsp<%= urlRedirect %>">=> Click HERE <=</a>
         </div>
         
         <header>
             <div id="headband">
-                <a href="index_login.html"><img src="pictures/logo_mini.jpg" alt="Logo"/></a>
+                <a href="index.jsp<%= urlRedirect %>"><img src="pictures/logo_mini.jpg" alt="Logo"/></a>
                 <nav>
                     <ul>
-                        <li><a href="topics.html">Topics</a></li>
-                        <li><a href="about.html">About us</a></li>
+                        <li><a href="topics.jsp<%= urlRedirect %>">Topics</a></li>
+                        <li><a href="about.jsp<%= urlRedirect %>">About us</a></li>
                         <li><a id="menuBtn" onclick="openNav()">**Special event**</a></li>
                     </ul>
                 </nav>  
@@ -49,26 +60,19 @@
                     <input type="text" name="research"  size=50 placeholder="Type your research here" />
                     <input type="submit" value="Search"/>
                 </div>
-                <button type="button" class="button" id="myBtn">Login</button>
-                <div class="button">
-                    <a href="signup.html">Sign up</a>
-                </div>
-                <div class="button">
-                    <a href="profil.html">My profil</a>
-                </div>
+                <%= userSession %>
             </div>
         </header>
 
         <div id="path"> 
-            <span><a href="topics.html">Technology</a> > <a href="AI.html">Artificial Intelligence</a> > </span> Is AI a danger for humanity ?
+            <span><a href="topics.jsp<%= urlRedirect %>">Technology</a> > <a href="AI2.jsp<%= urlRedirect %>">Artificial Intelligence</a> > </span> Is AI a danger for humanity ?
         </div>
 
         <div id="main_block">
-             <!-- Modal -->
+             <!-- Login Modal -->
              <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog">
-           
-     <!-- Modal content-->
+                
      <div class="modal-content">
        <div class="modal-header" style="padding:35px 50px;">
          <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -96,40 +100,35 @@
        </div>
        <div class="modal-footer">
          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-         <p>Not a member? <a href="signup.html">Sign Up</a></p>
+         <p>Not a member? <a href="signup.jsp<%= urlRedirect %>">Sign Up</a></p>
          <p>Forgot <a href="#">Password?</a></p>
        </div>
        
      </div>
-     <!-- End modal content-->
    </div>
  </div> 
- <!-- End Modal-->
+ <!-- End of login Modal-->
             <div class="presentation">
                 <div>
-                
+                <!-- connection to database -->
                    <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
 				         url = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb"
 				         user = "ee417"  password = "ee417"/>
-				 
+				 <!-- fetch every message containing the good discussion id -->
 				      <sql:query dataSource = "${snapshot}" var = "result">
-						SELECT * FROM testdb.discussion_table_web WHERE discussion_id =${discussion_id}     </sql:query>
-                
+						SELECT * FROM testdb.groupH_discussion_table WHERE discussion_id =${discussion_id}     </sql:query>
+                <!-- display discussion title -->
                 <c:forEach var = "row" items = "${result.rows}">
                 
                      <h1><c:out value = "${row.title}"/></h1>
                     <h3>Last activity : 3 hours ago</h3>
                     
                         </c:forEach>
-                        
-           
-						
-						
                 </div>
                 <input type="button" value="+ Add a new message" id="modal_button" data-toggle="modal" data-target="#ModalCenter"/>
 
                 
-                    <!-- Modal -->
+                    <!-- Adding a new message Modal part-->
                     <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -169,16 +168,14 @@
   
                     
             </div>
-            <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
-				         url = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb"
-				         user = "ee417"  password = "ee417"/>
-			<sql:query dataSource = "${snapshot}" var = "message">
-				      		
-						SELECT * FROM messages_discussion_table_web WHERE disc_id =${discussion_id}    </sql:query>
+            <sql:query dataSource = "${snapshot}" var = "message">
+						SELECT * FROM testdb.groupH_messages_discussion_table WHERE disc_id =${discussion_id}     </sql:query>
+			<!-- browsing messages in database and displaying content in divs -->
 			<c:forEach var = "row" items = "${message.rows}">
+			<!-- second sql query to see who wrote the message -->
 				<sql:query dataSource = "${snapshot}" var = "user">
 				      		
-						SELECT * FROM user_table_web WHERE user_id = ${row.user_id};    </sql:query>
+						SELECT * FROM groupH_user_table WHERE user_id = ${row.user_id};    </sql:query>
 				<div class="message">
                 <div class="autor">
                 <c:forEach var = "row2" items = "${user.rows}">
@@ -187,7 +184,7 @@
                     Picture ? 
                 </div>
                 <div class="message_content">
-                    <h3><c:out value = "${row.date}"/></h3>
+                    <h3><c:out value = "${row.post_date}"/></h3>
                     <p><c:out value = "${row.content}"/></p>
                 </div>
             </div>
