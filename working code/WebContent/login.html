@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- <link rel="stylesheet" href=""> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Open Sans";
+            background: url("./blog.jpg");
+            height: 100vh;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        h1 {
+            color: purple;
+            font-size: 2em;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .formdesign {
+            padding: 10px;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+            color: #000;
+            background: #ddd;
+            outline: none;
+            border: none;
+            margin: 1em 0;
+        }
+        
+        .control .btn {
+            color: rgb(160, 145, 145);
+            text-transform: uppercase;
+            background: crimson;
+            opacity: .7;
+            transition: opacity .5s ease;
+        }
+        
+        .btn:focus {
+            opacity: 1;
+        }
+        
+        p {
+            text-align: center;
+        }
+        
+        a {
+            text-decoration: none;
+            color: purple;
+            opacity: .9;
+        }
+        
+        a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Login Form</h1>
+    <form aciton="/CheckDBlogin" name="myLogin" onsubmit="return validateForm()" method="post"></form>
+    <div class="formdesign" id="uname">
+        Username: <input type="text" name="funame" required><b><span class="formerror"> </span></b>
+    </div>
+
+    <div class="formdesign" id="pass">
+        Password: <input type="password" name="fpass" required><b><span class="formerror"></span></b>
+    </div>
+
+    <span><input type="checkbox"> Remember me</span>
+    <div class="control">
+        <input type="submit" class="btn" value="Login">
+    </div>
+    </form>
+    <p><a href="signup.html">Forget password ?</a></p>
+    </div>
+
+</body>
+
+<script>
+    function clearErrors() {
+
+        errors = document.getElementsByClassName('formerror');
+        for (let item of errors) {
+            item.innerHTML = "";
+        }
+
+
+    }
+
+    function seterror(id, error) {
+        //sets error inside tag of id 
+        element = document.getElementById(id);
+        element.getElementsByClassName('formerror')[0].innerHTML = error;
+
+    }
+
+    function validateForm() {
+        var returnval = true;
+        clearErrors();
+
+        //perform validation and if validation fails, set the value of returnval to false
+        var Username = document.forms['myLogin']["funame"].value;
+        if (Username.length < 5) {
+            seterror("uname", "*Wrong Credentails ");
+            returnval = false;
+        }
+
+        if (Username.length == 0) {
+            seterror("uname", "*Length of name cannot be zero!");
+            returnval = false;
+        }
+
+        var password = document.forms['myLogin']["fpass"].value;
+        if (password.length < 6) {
+
+            seterror("pass", "*Password should be atleast 6 characters long!");
+            returnval = false;
+        }
+
+
+        return returnval;
+    }
+</script>
+
+</html>

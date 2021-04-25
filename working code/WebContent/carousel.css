@@ -1,0 +1,135 @@
+body,html {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    overflow-x: hidden
+}
+
+body {
+    font-family: sans-serif;
+    padding: 0 50px 50px;
+    background: linear-gradient(45deg,#f37646,#f3e946) 50% no-repeat;
+    line-height: 1.4
+}
+
+.title {
+    margin-top: 50px;
+    font-size: 25px;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 25px
+}
+
+.item {
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 15px 35px #3232321a,0 5px 15px #0000001a;
+    transition: transform .3s;
+    transform: translate3d(0,-1px,0)
+}
+
+.item:hover {
+    transform: translate3d(0,-10px,0)
+}
+
+.item img {
+    display: block;
+    width: 100%;
+    height: auto
+}
+
+.item__body {
+    padding: 25px
+}
+
+.item__title {
+    font-size: 24px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: #232323
+}
+
+.item__description {
+    color: #585858
+}
+
+.carousel,.items {
+    position: relative
+}
+
+.carousel {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.carousel_container{
+    transition: transform .3s;
+    transform: translate3d(0,0,0)
+}
+
+.carousel_container:after {
+    content: "";
+    clear: both;
+    display: table
+}
+
+.carousel_item {
+    float: left
+}
+
+.carousel_next,.carousel_prev {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #fff url(right.svg) 50% no-repeat;
+    background-size: 20px 20px;
+    border-radius: 50%;
+    top: 50%;
+    right: 5px;
+    box-shadow: 0 15px 35px #3232321a,0 5px 15px #0000001a;
+    cursor: pointer;
+    transition: transform .3s,opacity .3s
+}
+
+.carousel_next:hover,.carousel_prev:hover {
+    transform: scale(1.2)
+}
+
+.carousel_prev {
+    background-image: url(left.svg);
+    right: auto;
+    left: 5px
+}
+
+.carousel_next-hidden,.carousel_prev-hidden {
+    opacity: 0
+}
+
+
+.carousel_pagination{
+    position:absolute;
+    bottom: 0;
+    left : 0;
+    right :0;
+    text-align: center;
+}
+.carousel_pagination_button{
+    background-color: white;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; /*make a circle*/
+    display: inline-block;
+    margin : 0 3px;
+    transition: transform 0.3s;
+    cursor: pointer
+}
+
+.carousel_pagination_button-active,.carousel_pagination_button:hover {
+    transform: scale(1.4)
+}
+
+@media screen and (min-width: 800px) {
+    .carousel_pagination {
+        display:block
+    }
+}
