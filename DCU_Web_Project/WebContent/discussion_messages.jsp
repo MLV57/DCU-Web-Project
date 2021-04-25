@@ -52,7 +52,7 @@
                 <nav>
                     <ul>
                         <li><a href="topics.jsp<%= urlRedirect %>">Topics</a></li>
-                        <li><a href="about.html<%= urlRedirect %>">About us</a></li>
+                        <li><a href="about.jsp<%= urlRedirect %>">About us</a></li>
                         <li><a id="menuBtn" onclick="openNav()">**Special event**</a></li>
                     </ul>
                 </nav>  
