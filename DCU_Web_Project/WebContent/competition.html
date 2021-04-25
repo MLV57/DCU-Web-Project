@@ -38,7 +38,7 @@
 <div id="flex-container">
     <div id="main_block">
         <h1>Fill out the form for a chance to win</h1></br>
-        <form method="POST" action="InsertDBCompetition" name="table" id="table" onsubmit="validateForm()">
+        <form name="table" id="table" onsubmit="validateForm()">
             <table>
                 <tr>
                     <td>
@@ -103,6 +103,14 @@
                     </td>
                     <td>
                         <input id="why" name="why" title="why" type="text" placeholder="Why should you win..."size="24" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="date">Date</label>
+                    </td>
+                    <td>
+                        <input id="date" name="date" title="date" type="date" placeholder="Todays Date Is..."size="24" />
                     </td>
                 </tr>
             </table>

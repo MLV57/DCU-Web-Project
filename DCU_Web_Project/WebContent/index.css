@@ -149,22 +149,6 @@ input{
     font-size: 1.1em; 
 }
 
-.session
-{
-	display:flex;
-	flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.sessionButton
-{
-	display:flex;
-	flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
 
 #main_block
 {
