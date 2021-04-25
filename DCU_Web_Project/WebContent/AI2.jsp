@@ -204,7 +204,6 @@
                 String name=request.getParameter("name");
                 String order=request.getParameter("order");
                 %>
-                <p>BITE ${order}</p>
        <!-- depending on what was forwarded in the filter request, the sql query is different -->         
                 <c:choose>
 			    <c:when test="${filtered=='1'}">
