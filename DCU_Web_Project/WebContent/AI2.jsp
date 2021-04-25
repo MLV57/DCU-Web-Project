@@ -103,6 +103,23 @@
                 <form id="filter_form" action="Filter_Servlet" method="post">
                     <label id="tag_label" for="tag">By tag : </label>
                     <input id="tag_input" type="text" name="tag"  placeholder="Enter a tag..." />
+			<script type="text/javascript"> 
+                   
+                   		var filter = getURLVariable("id");
+				document.getElementById("tag_input").setAttribute('value',filter);
+						  
+				function getURLVariable(variable)
+				 {
+					var query = window.location.search.substring(1);
+					var vars = query.split("&");
+						for (var i=0;i<vars.length;i++) {
+						           var pair = vars[i].split("=");
+						           if(pair[0] == variable){return pair[1];}
+						 }
+						         return(false);
+				}
+				</script>		  
+						  
                     <label for="name">By name : </label>
                     <input type="text" name="name"  placeholder="Enter a word..." />
                     <label>Sort :</label> 
