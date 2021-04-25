@@ -12,6 +12,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -75,19 +76,18 @@ doGet(request, response);
        String tags = request.getParameter("tags");
        String topic_id = request.getParameter("topic_id");
      
-       DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
-       Date dateobj = new Date();
-       String date = String.valueOf(dateobj);
+       SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+       Date date = new Date();  
        
 	 try {
 		 //Pre statement to insert account into the thomas_table_accounts table
 		 PreparedStatement pstmt = con.prepareStatement(
-				  "INSERT INTO testdb.groupH_discussion_table (title,tags,date) VALUES (?,?,?,?)");
+				  "INSERT INTO testdb.groupH_discussion_table (title,tags,creation_date,topic_id) VALUES (?,?,?,?)");
 				  pstmt.clearParameters();       // Clears any previous parameters
 				//changing "?" by form information
 				  pstmt.setString(1, title);
 				  pstmt.setString(2, tags);
-				  pstmt.setString(3, date);
+				  pstmt.setString(3, formatter.format(date));
 				  pstmt.setString(4, topic_id);
 				  
 				  pstmt.executeUpdate();
@@ -113,8 +113,10 @@ doGet(request, response);
 	         System.out.println("An error occurred while closing down connection/statement"); 
             }
         }
-	
-		
+	 request.setAttribute("topic_id", topic_id);
+	 RequestDispatcher requestDispatcher = request.getRequestDispatcher("AI2.jsp");
+     requestDispatcher.forward(request, response);
+
 		
 		
 		

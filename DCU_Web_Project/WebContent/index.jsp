@@ -28,18 +28,20 @@
     </head>
     
     <body>
-	<% String firstName = request.getParameter("firstName"); //email of the current user 
-	   String lastName = request.getParameter("lastName"); //email of the current user
-       String userSession = null,urlRedirect = null;
-       if (firstName != null && lastName !=null){
-    	   userSession = "<div class='session'>"+firstName + " "+lastName+"<div class='sessionButton'><div class='button'><a href='profil.jsp'>My profil</a></div><div class='button'><a href='index.jsp'>Logout</a></div></div></div>"; //display my profil and logout button if the user is connected 
-    	   urlRedirect = "?firstName="+response.encodeURL(firstName)+"&lastName="+lastName; //string appended to the link to pages accessible by url rewriting 
-       }
-       else {
-    	   userSession = "<button type='button' class='button' id='myBtn' style='color: white;'>Login</button><div class='button'><a href='signup.jsp'>Sign up</a></div>"; //if the user isn't logged in display the login button 
-    	   urlRedirect = ""; //no info to deliver to servlet 
-       }  
-	 %>
+	<% String email = request.getParameter("email"); //email of the current user 
+    	   String status = request.getParameter("status"); //status of the current user 
+	       String userSession = null,urlRedirect = null,urlToServlet = null;
+	       if (email != null){
+	    	   userSession = "<div class='session'>"+email+"<a href='LogoutServlet'>Logout</a></div>"; //division that contains the email of the user and logout link
+	    	   urlRedirect = "?email="+response.encodeURL(email)+"&status="+status; //string appended to the link to pages accessible by url rewriting 
+	    	   urlToServlet = "?email="+response.encodeURL(email)+"&status="+status+"&"; //string appended to the link to pages accessible by servlets
+	       }
+	       else {
+	    	   userSession = "<div id='connection' class='button'> <a href='login.jsp'>Login</a> </div>"; //if the user isn't logged in display the login button 
+	    	   urlRedirect = ""; //no info to deliver to servlet 
+	    	   urlToServlet = "?"; //no info to deliver to servlet 
+	       }  
+	    %>
         <div id="dyanamicMenu" class="dyanamicMenu">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <h1>**</h1>
@@ -57,7 +59,7 @@
                 <nav>
                     <ul>
                         <li><a href="topics.jsp<%= urlRedirect %>">Topics</a></li>
-                        <li><a href="about.jsp<%= urlRedirect %>">About us</a></li>
+                        <li><a href="about.html<%= urlRedirect %>">About us</a></li>
                         <li><a id="menuBtn" onclick="openNav()">**Special event**</a></li>
                     </ul>
                 </nav>  
