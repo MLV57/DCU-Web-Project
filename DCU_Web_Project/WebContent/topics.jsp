@@ -16,12 +16,12 @@
     </head>
 
     <body>
-	<% String firstName = request.getParameter("firstName"); //email of the current user
-	   String lastName = request.getParameter("lastName"); //email of the current user
+	<% String pseudo = request.getParameter("pseudo"); //email of the current user
+	   String id = request.getParameter("id"); //email of the current user
        String userSession = null,urlRedirect = null;
-       if (firstName != null && lastName !=null){
-    	   userSession = "<div class='session'>"+firstName + " "+lastName+"<div class='sessionButton'><div class='button'><a href='profil.jsp'>My profil</a></div><div class='button'><a href='index.jsp'>Logout</a></div></div></div>"; //display my profil and logout button if the user is connected
-    	   urlRedirect = "?firstName="+response.encodeURL(firstName)+"&lastName="+lastName; //string appended to the link to pages accessible by url rewriting
+       if (pseudo != null && id !=null){
+    	   userSession = "<div class='session'>"+pseudo +"<div class='sessionButton'><div class='button'><a href='profil.jsp'>My profil</a></div><div class='button'><a href='index.jsp'>Logout</a></div></div></div>"; //display my profil and logout button if the user is connected
+    	   urlRedirect = "?pseudo="+response.encodeURL(pseudo)+"&id="+id; //string appended to the link to pages accessible by url rewriting
        }
        else {
     	   userSession = "<button type='button' class='button' id='myBtn' style='color: white;'>Login</button><div class='button'><a href='signup.jsp'>Sign up</a></div>"; //if the user isn't logged in display the login button

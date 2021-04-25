@@ -44,7 +44,6 @@ public class CheckDBforLogin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-doGet(request, response);
 		// TODO Auto-generated method stub
 		Connection con = null;
         Statement stmt = null;
@@ -75,21 +74,22 @@ doGet(request, response);
        System.out.println(pwd);
        String querry = "select * from groupH_user WHERE Username = '" + Pseudo + "' and Pwd = '" + pwd + "'";
 
-	 try {
+       try {
 
 	     stmt   = con.createStatement();
-	     stmt.executeQuery(querry);
+	     ResultSet res = stmt.executeQuery(querry);
 
 		 if(stmt.getResultSet().next()){
 		      System.out.println("The user is already registered " + Pseudo);
+		      String id= res.getString("EnrollmentID");//retrieve the id 
 		      //Write code and redirect the user on main page
-			 request.getRequestDispatcher("index.html").include(request, response);
+		      response.sendRedirect("index.jsp?pseudo="+Pseudo+"&id="+id);
 		      }
 		      else{
 		          System.out.println("No customer registered with this  " + Pseudo);
 		      //Display an error message.
 			  String errorMessage = "No customer registered with this  " + Pseudo;
-			  out.println("alert(" + "'" + errorMessage + "'" + ");</script>");
+			  response.sendRedirect("index.jsp");
 		      }
 
 	 }
