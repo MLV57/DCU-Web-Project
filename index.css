@@ -1,3 +1,4 @@
+
 #headband
 {
     top: 0px;
@@ -162,6 +163,18 @@ input{
     padding: 50px;
 }
 
+#main
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(50, 49, 53);
+    border-radius: 20px;
+    margin: 100px 20px 30px 20px;
+    padding: 50px;
+}
+
+
 #main_block2
 {
     display: flex;
@@ -187,8 +200,77 @@ input{
     background-color: rgb(50, 49, 53);
     border-radius: 20px;
     margin: 10px 20px 30px 20px;
-    padding: 50px;
+    padding: 20px;
+    width: auto;
 }
+
+#main_block4
+{
+	position: absolute;
+	right: 10px;
+	float: right;
+	align-items: left;
+	justify-content: space-between;
+    border-radius: 20px;
+    margin: 120px 20px 30px 20px;
+    padding: 12px;
+    width: 38%;
+}
+
+#main_block5
+{
+	left: 10px;
+    justify-content: space-between;
+    align-items: left;
+    border-radius: 20px;
+    margin: 15px 20px 130px 20px;
+    padding: 12px;
+    width: 40%;
+}
+
+
+#pub1 {
+  display: block;
+}
+#pub2 {
+  display: none;
+  width: 160px;
+  height: 520px;
+  background-color: rgb(50, 49, 53);
+  padding: 10px;
+  border-radius: 10px;
+}
+#pub3 {
+  display: block;
+}
+#pub4 {
+  display: none;
+  width: 160px;
+  height: 520px;
+  background-color: rgb(50, 49, 53);
+  padding: 10px;
+  border-radius: 10px;
+}
+#adtext {
+	display: none;
+}
+#adtext2 {
+	display: none;
+}
+
+
+
+div#leftcolumn {
+	float: left;
+	width: 180px;
+	margin-right: 10px;
+	background: rgb(210, 212, 214);
+	border-radius: 10px;
+	padding: 12px;
+}
+
+
+
 
 #logo
 {
