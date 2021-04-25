@@ -62,20 +62,76 @@ public class topic2discussion_servlet extends HttpServlet {
             System.exit(0);
         }   
         //getting paramaters from form
-       String gender= request.getParameter("gender");
-       String fname= request.getParameter("fname");
-       String lname= request.getParameter("lname");
-       String email= request.getParameter("email");
-       String rname= request.getParameter("rname");
-       String procard= request.getParameter("procard");
-       String radress= request.getParameter("radress");
-       String rphone= request.getParameter("rphone");
-       String ownphone= request.getParameter("ownphone");
-       String desc= request.getParameter("desc");
-       //get the date and hour as it is a column of the table
-       Date dNow = new Date( );
-       SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd 'at' hh:mm:ss");
-       int verif = 0;//will be used to check if restaurant name is already taken
+       String topic_id= request.getParameter("topic_id");
+       String topic_title;
+       String topic_description;
+
+       if(topic_id =="1") {
+    	   topic_title="Artificial Intelligence";
+    	   topic_description="Here, come and share your ideas about AI";
+       }
+		else if(topic_id =="2") {
+			topic_title="Cryptography";
+	    	   topic_description="A question about the latest cryptography techniques? You are in the right place";
+		       }
+		else if(topic_id =="3") {
+			topic_title="Electronics";
+	    	   topic_description="All your questions about electronics";
+		}
+		else if(topic_id =="4") {
+			topic_title="";
+	    	   topic_description="";
+		}
+		else if(topic_id =="5") {
+			topic_title="";
+	    	   topic_description="";
+		}
+		else if(topic_id =="6") {
+			topic_title="";
+	    	   topic_description="";
+		}
+		else if(topic_id =="7") {
+			topic_title="";
+	    	   topic_description="";
+		}
+		else if(topic_id =="8") {
+			topic_title="";
+	    	   topic_description="";
+		}
+		else if(topic_id =="9") {
+			topic_title="";
+	    	   topic_description="";
+		}
+		else if(topic_id =="10") {
+			topic_title="";
+	    	   topic_description="";
+		}
+		else if(topic_id =="11") {
+			topic_title="";
+	    	   topic_description="";
+		}
+		else if(topic_id =="12") {
+			topic_title="";
+	    	   topic_description="";
+		}
+		else if(topic_id =="13") {
+			topic_title="";
+	    	   topic_description="";
+		}
+		else if(topic_id =="14") {
+			topic_title="";
+	    	   topic_description="";
+		}
+		else if(topic_id =="15") {
+			topic_title="";
+	    	   topic_description="";
+		}
+		else if(topic_id =="16") {
+			topic_title="";
+	    	   topic_description="";
+		}
+		
+       
        try {
   	     System.out.println("\nConnection Successful..... creating statement....");
        	 stmt = con.createStatement();

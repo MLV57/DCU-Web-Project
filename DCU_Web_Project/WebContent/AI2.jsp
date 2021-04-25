@@ -189,19 +189,19 @@
 				    <c:when test="${tag!='' and name!=''}">
 				        <sql:query dataSource = "${snapshot}" var = "result">
 				      		
-						SELECT * FROM discussion_table_web WHERE tags LIKE '%${tag}%' AND title LIKE '%${name}%';    </sql:query>
+						SELECT * FROM groupH_discussion_table WHERE tags LIKE '%${tag}%' AND title LIKE '%${name}%';    </sql:query>
 				        <br />
 				    </c:when>
 				    <c:when test="${tag!='' and name==''}">
 				        <sql:query dataSource = "${snapshot}" var = "result">
 				      		
-						SELECT * FROM discussion_table_web WHERE tags LIKE '%${tag}%';    </sql:query>
+						SELECT * FROM groupH_discussion_table WHERE tags LIKE '%${tag}%';    </sql:query>
 				        <br />
 				    </c:when> 
 				    <c:when test="${tag=='' and name!=''}">
 				        <sql:query dataSource = "${snapshot}" var = "result">
 				      		
-						SELECT * FROM discussion_table_web WHERE title LIKE '%${name}%';    </sql:query> 
+						SELECT * FROM groupH_discussion_table WHERE title LIKE '%${name}%';    </sql:query> 
 				        <br />
 				    </c:when>         
 				</c:choose>
@@ -237,7 +237,7 @@
 				         user = "ee417"  password = "ee417"/>
 				 <%-- We load everything from the database --%>
 				      <sql:query dataSource = "${snapshot}" var = "result">
-						SELECT * FROM testdb.discussion_table_web     </sql:query>
+						SELECT * FROM testdb.groupH_discussion_table     </sql:query>
 						<c:forEach var = "row" items = "${result.rows}"
 						>
 						<c:set var = "rowTags" value = "${row.tags}"/>

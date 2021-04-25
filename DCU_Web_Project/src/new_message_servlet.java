@@ -78,7 +78,7 @@ public class new_message_servlet extends HttpServlet {
 	 try {
 		 //Pre statement to insert account into the thomas_table_accounts table
 		 PreparedStatement pstmt = con.prepareStatement(
-				  "INSERT INTO testdb.messages_discussion_table_web (content,disc_id,user_id,date) VALUES (?,?,?,?)");
+				  "INSERT INTO testdb.groupH_messages_discussion_table (content,disc_id,user_id,date) VALUES (?,?,?,?)");
 				  pstmt.clearParameters();       // Clears any previous parameters
 				//changing "?" by form information
 				  pstmt.setString(1, message);

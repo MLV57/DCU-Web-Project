@@ -81,7 +81,7 @@ doGet(request, response);
 	 try {
 		 //Pre statement to insert account into the thomas_table_accounts table
 		 PreparedStatement pstmt = con.prepareStatement(
-				  "INSERT INTO testdb.discussion_table_web (title,tags,date) VALUES (?,?,?)");
+				  "INSERT INTO testdb.groupH_discussion_table (title,tags,date) VALUES (?,?,?)");
 				  pstmt.clearParameters();       // Clears any previous parameters
 				//changing "?" by form information
 				  pstmt.setString(1, title);

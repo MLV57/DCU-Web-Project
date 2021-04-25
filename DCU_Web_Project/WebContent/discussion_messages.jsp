@@ -111,7 +111,7 @@
 				         user = "ee417"  password = "ee417"/>
 				 <!-- fetch every message containing the good discussion id -->
 				      <sql:query dataSource = "${snapshot}" var = "result">
-						SELECT * FROM testdb.discussion_table_web WHERE discussion_id =${discussion_id}     </sql:query>
+						SELECT * FROM testdb.groupH_discussion_table WHERE discussion_id =${discussion_id}     </sql:query>
                 <!-- display discussion title -->
                 <c:forEach var = "row" items = "${result.rows}">
                 
@@ -163,13 +163,14 @@
   
                     
             </div>
-            
+            sql:query dataSource = "${snapshot}" var = "result">
+						SELECT * FROM testdb.groupH_messages_discussion_table WHERE disc_id =${discussion_id}     </sql:query>
 			<!-- browsing messages in database and displaying content in divs -->
 			<c:forEach var = "row" items = "${message.rows}">
 			<!-- second sql query to see who wrote the message -->
 				<sql:query dataSource = "${snapshot}" var = "user">
 				      		
-						SELECT * FROM user_table_web WHERE user_id = ${row.user_id};    </sql:query>
+						SELECT * FROM groupH_user_table WHERE user_id = ${row.user_id};    </sql:query>
 				<div class="message">
                 <div class="autor">
                 <c:forEach var = "row2" items = "${user.rows}">
