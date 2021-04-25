@@ -23,7 +23,18 @@
     </head>
     
     <body>
-
+	<% String firstName = request.getParameter("firstName"); //email of the current user 
+		   String lastName = request.getParameter("lastName"); //email of the current user
+	       String userSession = null,urlRedirect = null;
+	       if (firstName != null && lastName !=null){
+	    	   userSession = "<div class='session'>"+firstName + " "+lastName+"<div class='sessionButton'><div class='button'><a href='profil.jsp'>My profil</a></div><div class='button'><a href='index.jsp'>Logout</a></div></div></div>"; //display my profil and logout button if the user is connected 
+	    	   urlRedirect = "?firstName="+response.encodeURL(firstName)+"&lastName="+lastName; //string appended to the link to pages accessible by url rewriting 
+	       }
+	       else {
+	    	   userSession = "<button type='button' class='button' id='myBtn' style='color: white;'>Login</button><div class='button'><a href='signup.jsp'>Sign up</a></div>"; //if the user isn't logged in display the login button 
+	    	   urlRedirect = ""; //no info to deliver to servlet 
+	       }  
+		 %>
         <div id="dyanamicMenu" class="dyanamicMenu">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <h1>**</h1>
@@ -32,16 +43,16 @@
             <h2>Be in with a chance to win a holiday for two to a destination of your choice !</h2>
             <h2>You just have to fill out a form to participate !</h2>
             <h1>Enter Our Competition !</h1>
-            <a href="competition.html">=> Click HERE <=</a>
+            <a href="competition.jsp<%= urlRedirect %>">=> Click HERE <=</a>
         </div>
         
         <header>
             <div id="headband">
-                <a href="index_login.html"><img src="pictures/logo_mini.jpg" alt="Logo"/></a>
+                <a href="index.jsp<%= urlRedirect %>"><img src="pictures/logo_mini.jpg" alt="Logo"/></a>
                 <nav>
                     <ul>
-                        <li><a href="topics.html">Topics</a></li>
-                        <li><a href="about.html">About us</a></li>
+                        <li><a href="topics.jsp<%= urlRedirect %>">Topics</a></li>
+                        <li><a href="about.html<%= urlRedirect %>">About us</a></li>
                         <li><a id="menuBtn" onclick="openNav()">**Special event**</a></li>
                     </ul>
                 </nav>  
@@ -49,18 +60,12 @@
                     <input type="text" name="research"  size=50 placeholder="Type your research here" />
                     <input type="submit" value="Search"/>
                 </div>
-                <button type="button" class="button" id="myBtn">Login</button>
-                <div class="button">
-                    <a href="signup.html">Sign up</a>
-                </div>
-                <div class="button">
-                    <a href="profil.html">My profil</a>
-                </div>
+                <%= userSession %>
             </div>
         </header>
 
         <div id="path"> 
-            <span><a href="topics.html">Technology</a> > <a href="AI.html">Artificial Intelligence</a> > </span> Is AI a danger for humanity ?
+            <span><a href="topics.jsp<%= urlRedirect %>">Technology</a> > <a href="AI2.jsp<%= urlRedirect %>">Artificial Intelligence</a> > </span> Is AI a danger for humanity ?
         </div>
 
         <div id="main_block">
@@ -95,7 +100,7 @@
        </div>
        <div class="modal-footer">
          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-         <p>Not a member? <a href="signup.html">Sign Up</a></p>
+         <p>Not a member? <a href="signup.jsp<%= urlRedirect %>">Sign Up</a></p>
          <p>Forgot <a href="#">Password?</a></p>
        </div>
        
