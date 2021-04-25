@@ -109,7 +109,7 @@
                     <label id="tag_label" for="tag">By tag : </label>
                     <input id="tag_input" type="text" name="tag"  placeholder="Enter a tag..." />
 			<script type="text/javascript"> 
-                   
+             /*      
                    		var filter = getURLVariable("id");
 				document.getElementById("tag_input").setAttribute('value',filter);
 						  
@@ -122,7 +122,7 @@
 						           if(pair[0] == variable){return pair[1];}
 						 }
 						         return(false);
-				}
+				}*/
 				</script>		  
 						  
                     <label for="name">By name : </label>
@@ -204,30 +204,36 @@
                 String name=request.getParameter("name");
                 String order=request.getParameter("order");
                 %>
+                <p>BITE ${order}</p>
        <!-- depending on what was forwarded in the filter request, the sql query is different -->         
                 <c:choose>
 			    <c:when test="${filtered=='1'}">
-			    
-			        
+			    	
 				 <c:choose> 
 				    <c:when test="${tag!='' and name!=''}">
 				        <sql:query dataSource = "${snapshot}" var = "result">
 				      		
-						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} AND tags LIKE '%${tag}%' AND title LIKE '%${name}%' ;    </sql:query>
+						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} AND tags LIKE '%${tag}%' AND title LIKE '%${name}%' ${order};    </sql:query>
 				        <br />
 				    </c:when>
 				    <c:when test="${tag!='' and name==''}">
 				        <sql:query dataSource = "${snapshot}" var = "result">
 				      		
-						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} AND tags LIKE '%${tag}%';    </sql:query>
+						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} AND tags LIKE '%${tag}%' ${order} ;    </sql:query>
 				        <br />
 				    </c:when> 
 				    <c:when test="${tag=='' and name!=''}">
 				        <sql:query dataSource = "${snapshot}" var = "result">
 				      		
-						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} AND title LIKE '%${name}%';    </sql:query> 
+						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} AND title LIKE '%${name}%' ${order} ;    </sql:query> 
 				        <br />
-				    </c:when>         
+				    </c:when>  
+				    <c:when test="${tag=='' and name==''}">
+				        <sql:query dataSource = "${snapshot}" var = "result">
+				      		
+						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} ${order} ;    </sql:query> 
+				        <br />
+				    </c:when>           
 				</c:choose>
 				      
 						<c:forEach var = "row" items = "${result.rows}">
