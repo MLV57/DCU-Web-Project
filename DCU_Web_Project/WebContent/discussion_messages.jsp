@@ -139,7 +139,7 @@
                             <h1 style="padding-left: 20px;">New message: </h1>
 
                             </div>
-                            <form action = "new_message_servlet" method = "post">
+                            <form name="message_form" action = "new_message_servlet" method = "post">
                             <div class="modal-body">
 
                                     <div class="form-group">
@@ -149,7 +149,7 @@
                                         resize: vertical;"></textarea>
                                       </div>
                                       <input type="hidden" id="discussion_id" name="discussion_id" value=${discussion_id}>
-                                    <input type="hidden" id="user_id" name="user_id" value="${id}">
+                                    <input type="hidden" id="user_id" name="user_id" value="${id}" onsubmit="return validateForm()">
 
                             </div>
                             <div class="modal-footer">
@@ -207,5 +207,14 @@
             </div>
         </footer>
             <script src="modal_login.js"></script>
+            <script>
+            function validateForm() {
+            	  var x = document.forms["message_form"]["user_id"].value;
+            	  if (x == "") {
+            	    alert("You must be logged in to write a message !");
+            	    return false;
+            	  }
+            	}
+            </script>
     </body>
 </html>
