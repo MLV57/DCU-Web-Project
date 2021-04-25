@@ -242,31 +242,31 @@
                 <div class="featured_element" id="popular">
                     <h1>Popular discussions</h1>
                     <div class="featured_discussion">
-                        <h1>Title of the discussion</h1>
-                        <h3>Content of the last message</h3>
+                        <h1>Is AI a danger for humanity ?</h1>
+                        <h3>Why would AI be a danger for us ? Robot are made by humans and we have a total control on them</h3>
                     </div>
                     <div class="featured_discussion">
-                        <h1>Title of the discussion</h1>
-                        <h3>Content of the last message</h3>
+                        <h1>How do neural networks work ?</h1>
+                        <h3>You can refer to Wikipedia :)</h3>
                     </div>
                     <div class="featured_discussion">
-                        <h1>Title of the discussion</h1>
-                        <h3>Content of the last message</h3>
+                        <h1>What do you think about Elon Musk vision of space conquest ?</h1>
+                        <h3>I'm shure Elon Musk will be president of the US in few years</h3>
                     </div>
                 </div>
                 <div class="featured_element" id="last">
                     <h1>Last discussions</h1>
                     <div class="featured_discussion">
-                        <h1>Title of the discussion</h1>
-                        <h3>Content of the last message</h3>
+                        <h1>Would you agree to travel in an autonomous car ?</h1>
+                        <h3>No I don't trust AI</h3>
                     </div>
                     <div class="featured_discussion">
-                        <h1>Title of the discussion</h1>
-                        <h3>Content of the last message</h3>
+                        <h1>Is ISS a waste of money ?</h1>
+                        <h3>For me, ISS is one of the greatest human creations and an opportunity to understand our universe</h3>
                     </div>
                     <div class="featured_discussion">
-                        <h1>Title of the discussion</h1>
-                        <h3>Content of the last message</h3>
+                        <h1>What is your opinion about Astra Zeneca ?</h1>
+                        <h3>It's a danger for humanity</h3>
                     </div>
                 </div>
             </div>                
