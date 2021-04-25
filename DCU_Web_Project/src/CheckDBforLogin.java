@@ -20,8 +20,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/CheckDBforLogin")
 public class CheckDBforLogin extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
-       
+
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -29,20 +31,20 @@ public class CheckDBforLogin extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-    
-    /**
+
+	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-    	response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+doGet(request, response);
 		// TODO Auto-generated method stub
 		Connection con = null;
         Statement stmt = null;
@@ -51,10 +53,11 @@ public class CheckDBforLogin extends HttpServlet {
         String username1 = "ee417";
         String password1 = "ee417";
         PrintWriter out = response.getWriter();
-        
+
         try {
             System.out.println("\nConnecting to the SSD Database......");
             Class.forName("com.mysql.jdbc.Driver");
+            //connection to the database
             con = DriverManager.getConnection(JDBCUrl, username1, password1);
         }
         catch (Exception e) {
@@ -62,15 +65,18 @@ public class CheckDBforLogin extends HttpServlet {
                     + "  classes unable to be found.  Otherwise the database itself may be down.  Try telneting to port 3306 and see if it is up!");
             e.printStackTrace();
             System.exit(0);
-        }   
-        
+        }
+
+
 
        String Pseudo = request.getParameter("funame");
        String pwd = request.getParameter("fpass");
-       String querry = "select * from user WHERE Username = '" + Pseudo + "' and Pwd = '" + pwd + "'";
-     
+       System.out.println(Pseudo);
+       System.out.println(pwd);
+       String querry = "select * from groupH_user WHERE Username = '" + Pseudo + "' and Pwd = '" + pwd + "'";
+
 	 try {
-		 
+
 	     stmt   = con.createStatement();
 	     stmt.executeQuery(querry);
 
@@ -85,7 +91,7 @@ public class CheckDBforLogin extends HttpServlet {
 			  String errorMessage = "No customer registered with this  " + Pseudo;
 			  out.println("alert(" + "'" + errorMessage + "'" + ");</script>");
 		      }
-		 
+
 	 }
         catch (SQLException e) {
 	     System.out.println("\nAn error has occurred during the Statement/ResultSet phase.  Please check the syntax and study the Exception details!");
@@ -97,17 +103,17 @@ public class CheckDBforLogin extends HttpServlet {
         }
 
         finally {
-	     try {    
+	     try {
 	         if (rs != null) rs.close();
 		 if (stmt != null) stmt.close();
 		 if (con != null) con.close();
 	     }
 	     catch (Exception ex) {
-	         System.out.println("An error occurred while closing down connection/statement"); 
+	         System.out.println("An error occurred while closing down connection/statement");
             }
         }
-		
-		
+
+
 	}
 
 }

@@ -5,8 +5,8 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        
-        
+
+
         <script src="jquery-3.5.1.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -19,26 +19,26 @@
 
     <!-- ChatBot -->
     <link rel="stylesheet" type="text/css" href="jquery.convform.css">
-    
+
     <script type="text/javascript" src="jquery.convform.js"></script>
     <script type="text/javascript" src="custom.js"></script>
     <!-- ChatBot -->
 
         <title>Home page</title>
     </head>
-    
+
     <body>
-	<% String firstName = request.getParameter("firstName"); //email of the current user 
+	<% String firstName = request.getParameter("firstName"); //email of the current user
 	   String lastName = request.getParameter("lastName"); //email of the current user
        String userSession = null,urlRedirect = null;
        if (firstName != null && lastName !=null){
-    	   userSession = "<div class='session'>"+firstName + " "+lastName+"<div class='sessionButton'><div class='button'><a href='profil.jsp'>My profil</a></div><div class='button'><a href='index.jsp'>Logout</a></div></div></div>"; //display my profil and logout button if the user is connected 
-    	   urlRedirect = "?firstName="+response.encodeURL(firstName)+"&lastName="+lastName; //string appended to the link to pages accessible by url rewriting 
+    	   userSession = "<div class='session'>"+firstName + " "+lastName+"<div class='sessionButton'><div class='button'><a href='profil.jsp'>My profil</a></div><div class='button'><a href='index.jsp'>Logout</a></div></div></div>"; //display my profil and logout button if the user is connected
+    	   urlRedirect = "?firstName="+response.encodeURL(firstName)+"&lastName="+lastName; //string appended to the link to pages accessible by url rewriting
        }
        else {
-    	   userSession = "<button type='button' class='button' id='myBtn' style='color: white;'>Login</button><div class='button'><a href='signup.jsp'>Sign up</a></div>"; //if the user isn't logged in display the login button 
-    	   urlRedirect = ""; //no info to deliver to servlet 
-       }  
+    	   userSession = "<button type='button' class='button' id='myBtn' style='color: white;'>Login</button><div class='button'><a href='signup.jsp'>Sign up</a></div>"; //if the user isn't logged in display the login button
+    	   urlRedirect = ""; //no info to deliver to servlet
+       }
 	 %>
         <div id="dyanamicMenu" class="dyanamicMenu">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -60,7 +60,7 @@
                         <li><a href="about.jsp<%= urlRedirect %>">About us</a></li>
                         <li><a id="menuBtn" onclick="openNav()">**Special event**</a></li>
                     </ul>
-                </nav>  
+                </nav>
                 <div>
                     <input type="text" name="research"  size=50 placeholder="Type your research here" />
                     <input type="submit" value="Search"/>
@@ -72,7 +72,7 @@
             <!-- Modal -->
             <div class="modal fade" id="myModal" role="dialog">
                  <div class="modal-dialog">
-            
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
@@ -80,20 +80,20 @@
           <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form">
+          <form role="form" name="login-form" action="CheckDBforLogin" method='post'>
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+              <input name = "funame" type="text" class="form-control" id="usrname" placeholder="Enter email">
               <p style="text-align: center; padding: .25em;" id="incorrect"></p>
             </div>
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+              <input name = "fpass" type="text" class="form-control" id="psw" placeholder="Enter password">
             </div>
             <div class="checkbox">
               <label><input type="checkbox" value="" checked>Remember me</label>
             </div>
-              <button type="button" class="btn btn-success btn-block" onclick="ValidationFunction()"><span class="glyphicon glyphicon-off"></span> Login</button>
+              <button class="btn btn-success btn-block" type="submit" value="submit""><span class="glyphicon glyphicon-off"></span> Login </button>
               <p style="margin:1em;text-align:center">Or login with :</p>
               <button type="button" class="btn  btn-block google"><i class="fa fa-google"></i> Google</button>
               <button type="button" class="btn btn-block facebook"><i class="fa fa-facebook"></i> Facebook</button>
@@ -104,11 +104,11 @@
           <p>Not a member? <a href="signup.jsp<%= urlRedirect %>">Sign Up</a></p>
           <p>Forgot <a href="#">Password?</a></p>
         </div>
-        
+
       </div>
       <!-- End modal content-->
     </div>
-  </div> 
+  </div>
   <!-- End Modal-->
             <div id = "logo"><img src="pictures/logo.jpg" alt="Logo"/></div>
             <h1 class="slogan">Every topics, <span>where</span> you want, <span>when</span> you want</h1>
@@ -130,7 +130,7 @@
                 var animWindow = animNode.querySelector(".animation_window");
                 var ul = animWindow.querySelector("ul");
                 var lis = ul.querySelectorAll("li");
-            
+
                 // Copy the animation's window to create the gray list.
                 var grayList = animWindow.cloneNode(true);
                 var grayUl = grayList.querySelector("ul");
@@ -138,8 +138,8 @@
                 grayList.classList.remove("animation_window");
                 grayList.classList.add("animation-gray-list");
                 animNode.insertBefore(grayList, animWindow);
-            
-                // This function shows the li number `liNum`.                     
+
+                // This function shows the li number `liNum`.
                 function goTo(liNum){
                 var li = lis[liNum];
                 var liTop = li.getBoundingClientRect().top;
@@ -150,7 +150,7 @@
 
                 li.style.visibility="visible";
                 }
-            
+
                 // Set up an interval that changes the current li every `delay` ms.
                 var current = 0;
                 // We need a boolean to know if the animation is going up or down.
@@ -162,7 +162,7 @@
                 goTo(current);
                 }, delay);
                 }
-            
+
                 createWordListAnimation(document.querySelector(".animation_topics"), 1500 /* (ms) */);
             </script>
             <div id="deco"></div>
@@ -195,7 +195,7 @@
                         <div class="topics_content">
                             <h1>Technology</h1>
                             <h3>Discuss the latest technologies that human have created : AI, nanotechnology, advanced electronics and many more ...</h3>
-                        </div>    
+                        </div>
                     </a>
                 </div>
                 <div class="topics_element">
@@ -209,7 +209,7 @@
                             <h1>Sciences</h1>
                             <h3>Discover the latest scientific advances of the moment in many fields: astronomy, biology, physics ...</h3>
                         </div>
-                    </a>    
+                    </a>
                 </div>
                 <div class="topics_element" >
                     <a href="topics.jsp#art<%= urlRedirect %>">
@@ -222,7 +222,7 @@
                             <h1>Art</h1>
                             <h3>Contemplate the latest trendy works or dive into the heart of History and the different artistic currents that have crossed it...</h3>
                         </div>
-                    </a>    
+                    </a>
                 </div>
                 <div class="topics_element" >
                     <a href="topics.jsp#literature<%= urlRedirect %>">
@@ -235,7 +235,7 @@
                             <h1>Literature</h1>
                             <h3>Find literary classics or discover new, lesser-known authors...</h3>
                         </div>
-                    </a>   
+                    </a>
                 </div>
             </div>
             <div id="featured">
@@ -269,9 +269,9 @@
                         <h3>It's a danger for humanity</h3>
                     </div>
                 </div>
-            </div>                
+            </div>
         </div>
-            
+
             <!-- ChatBot -->
     <div class="chat_icon">
         <i href=""><img src="chatgogo.jpg" alt="Logo" /></i>
@@ -310,7 +310,7 @@
                 <input data-conv-question="Enter your e-mail" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" type="email" name="email" required placeholder="What's your e-mail?">
 
                 <select data-conv-question="Please Confirm">
-			
+
                 <option value="Yes">Confirm</option>
 
                 </select>
@@ -319,7 +319,7 @@
         </div>
     </div>
     <!-- ChatBot -->
-        
+
         <footer>
             <div id="copyright">
                 <h1>GogoChat</h1>

@@ -13,27 +13,27 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        
+
         <script src="AI.js"></script>
         <link rel="stylesheet" href="modal_login.css" />
         <title>Artificial Intelligence</title>
         <link rel="stylesheet" href="AI.css" />
     </head>
-    
+
     <body>
-	<% String firstName = request.getParameter("firstName"); //email of the current user 
+	<% String firstName = request.getParameter("firstName"); //email of the current user
 	   String lastName = request.getParameter("lastName"); //email of the current user
        String userSession = null,urlRedirect = null;
        if (firstName != null && lastName !=null){
-    	   userSession = "<div class='session'>"+firstName + " "+lastName+"<div class='sessionButton'><div class='button'><a href='profil.jsp'>My profil</a></div><div class='button'><a href='index.jsp'>Logout</a></div></div></div>"; //display my profil and logout button if the user is connected 
-    	   urlRedirect = "?firstName="+response.encodeURL(firstName)+"&lastName="+lastName; //string appended to the link to pages accessible by url rewriting 
+    	   userSession = "<div class='session'>"+firstName + " "+lastName+"<div class='sessionButton'><div class='button'><a href='profil.jsp'>My profil</a></div><div class='button'><a href='index.jsp'>Logout</a></div></div></div>"; //display my profil and logout button if the user is connected
+    	   urlRedirect = "?firstName="+response.encodeURL(firstName)+"&lastName="+lastName; //string appended to the link to pages accessible by url rewriting
        }
        else {
-    	   userSession = "<button type='button' class='button' id='myBtn' style='color: white;'>Login</button><div class='button'><a href='signup.jsp'>Sign up</a></div>"; //if the user isn't logged in display the login button 
-    	   urlRedirect = ""; //no info to deliver to servlet 
-       }  
+    	   userSession = "<button type='button' class='button' id='myBtn' style='color: white;'>Login</button><div class='button'><a href='signup.jsp'>Sign up</a></div>"; //if the user isn't logged in display the login button
+    	   urlRedirect = ""; //no info to deliver to servlet
+       }
 	 %>
-	 
+
         <div id="dyanamicMenu" class="dyanamicMenu">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <h1>**</h1>
@@ -54,7 +54,7 @@
                         <li><a href="about.jsp<%= urlRedirect %>">About us</a></li>
                         <li><a id="menuBtn" onclick="openNav()">**Special event**</a></li>
                     </ul>
-                </nav>  
+                </nav>
                 <div>
                     <input type="text" name="research"  size=50 placeholder="Type your research here" />
                     <input type="submit" value="Search"/>
@@ -64,7 +64,7 @@
         </header>
 
         <div id="main_block">
-        
+
         <!-- Login Modal -->
             <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog">
@@ -74,20 +74,20 @@
          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
        </div>
        <div class="modal-body" style="padding:40px 50px;">
-         <form role="form">
+         <form role="form" name="login-form" action="CheckDBforLogin" method='post'>
            <div class="form-group">
              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-             <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+             <input name = "funame" type="text" class="form-control" id="usrname" placeholder="Enter email">
              <p style="text-align: center; padding: .25em;" id="incorrect"></p>
            </div>
            <div class="form-group">
              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-             <input type="text" class="form-control" id="psw" placeholder="Enter password">
+             <input name = "fpass" type="text" class="form-control" id="psw" placeholder="Enter password">
            </div>
            <div class="checkbox">
              <label><input type="checkbox" value="" checked>Remember me</label>
            </div>
-             <button type="button" class="btn btn-success btn-block" onclick="ValidationFunction()"><span class="glyphicon glyphicon-off"></span> Login</button>
+             <button class="btn btn-success btn-block" type="submit" value="submit""><span class="glyphicon glyphicon-off"></span> Login</button>
              <p style="margin:1em;text-align:center">Or login with :</p>
              <button type="button" class="btn  btn-block google" ><i class="fa fa-google"></i> Google</button>
              <button type="button" class="btn btn-block facebook"><i class="fa fa-facebook"></i> Facebook</button>
@@ -98,21 +98,21 @@
          <p>Not a member? <a href="signup.jsp<%= urlRedirect %>">Sign Up</a></p>
          <p>Forgot <a href="#">Password?</a></p>
        </div>
-       
+
      </div>
    </div>
- </div> 
+ </div>
  <!-- End of login Modal-->
             <aside>
                 <h1>- Filters -</h1>
                 <form id="filter_form" action="Filter_Servlet" method="post">
                     <label id="tag_label" for="tag">By tag : </label>
                     <input id="tag_input" type="text" name="tag"  placeholder="Enter a tag..." />
-			<script type="text/javascript"> 
-             /*      
+			<script type="text/javascript">
+             /*
                    		var filter = getURLVariable("id");
 				document.getElementById("tag_input").setAttribute('value',filter);
-						  
+
 				function getURLVariable(variable)
 				 {
 					var query = window.location.search.substring(1);
@@ -123,11 +123,11 @@
 						 }
 						         return(false);
 				}*/
-				</script>		  
-						  
+				</script>
+
                     <label for="name">By name : </label>
                     <input type="text" name="name"  placeholder="Enter a word..." />
-                    <label>Sort :</label> 
+                    <label>Sort :</label>
                     <div>
                         <input type="radio" id="recent" name="sort_recent"/>
                         <label for="recent">From more recent to oldest </label>
@@ -139,8 +139,8 @@
                     <input type="hidden" id="topic_id" name="topic_id" value="${topic_id}">
                     <input type="submit" value="Apply"/>
                 </form>
-                
-                
+
+
 
             </aside>
 
@@ -149,7 +149,7 @@
 				         url = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb"
 				         user = "ee417"  password = "ee417"/>
 			<sql:query dataSource = "${snapshot}" var = "topic">
-				      		
+
 						SELECT * FROM groupH_topics_table WHERE topic_id = ${topic_id}   </sql:query>
             <section>
                 <div class="topic_presentation">
@@ -159,7 +159,7 @@
                 </c:forEach>
                     <h3>    </h3>
                 </div>
-                
+
                 <!-- CREATE A NEW CONVERSATION PART -->
                 <input type="button" style="margin-top: 20px;margin-bottom: 20px;" value="+ Create a new discussion" id="modal_button" data-toggle="modal" data-target="#ModalCenter"/>
                 <!-- Modal -->
@@ -171,11 +171,11 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         <h1 style="padding-left: 20px;">New Discussion: </h1>
-                        
+
                         </div>
                         <form action="new_Discussion_Servlet" method="post">
                         <div class="modal-body">
-                            
+
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Discussion Title:</label>
                                     <input name="title" class="form-control" id="message-text" style="overflow: auto;
@@ -194,9 +194,9 @@
                     </div>
                 </div>
                 <!-- end of discussion creation -->
-                
+
                 <!-- DISCUSSIONS DISPLAY -->
-                
+
                 <!-- after applying filter part -->
                 	<!-- get request elements as strings -->
                 <% String filtered=request.getParameter("filtered");
@@ -204,37 +204,37 @@
                 String name=request.getParameter("name");
                 String order=request.getParameter("order");
                 %>
-       <!-- depending on what was forwarded in the filter request, the sql query is different -->         
+       <!-- depending on what was forwarded in the filter request, the sql query is different -->
                 <c:choose>
 			    <c:when test="${filtered=='1'}">
-			    	
-				 <c:choose> 
+
+				 <c:choose>
 				    <c:when test="${tag!='' and name!=''}">
 				        <sql:query dataSource = "${snapshot}" var = "result">
-				      		
+
 						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} AND tags LIKE '%${tag}%' AND title LIKE '%${name}%' ${order};    </sql:query>
 				        <br />
 				    </c:when>
 				    <c:when test="${tag!='' and name==''}">
 				        <sql:query dataSource = "${snapshot}" var = "result">
-				      		
+
 						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} AND tags LIKE '%${tag}%' ${order} ;    </sql:query>
 				        <br />
-				    </c:when> 
+				    </c:when>
 				    <c:when test="${tag=='' and name!=''}">
 				        <sql:query dataSource = "${snapshot}" var = "result">
-				      		
-						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} AND title LIKE '%${name}%' ${order} ;    </sql:query> 
+
+						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} AND title LIKE '%${name}%' ${order} ;    </sql:query>
 				        <br />
-				    </c:when>  
+				    </c:when>
 				    <c:when test="${tag=='' and name==''}">
 				        <sql:query dataSource = "${snapshot}" var = "result">
-				      		
-						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} ${order} ;    </sql:query> 
+
+						SELECT * FROM groupH_discussion_table WHERE topic_id = ${topic_id} ${order} ;    </sql:query>
 				        <br />
-				    </c:when>           
+				    </c:when>
 				</c:choose>
-				      
+
 						<c:forEach var = "row" items = "${result.rows}">
 						<c:set var = "rowTags" value = "${row.tags}"/>
 						<c:set var = "splitTags" value = "${fn:split(rowTags, ';')}" />
@@ -242,7 +242,7 @@
 		                    <div class="discussion_part_1">
 		                        <h1><c:out value = "${row.title}"/></h1>
 		                        <div class="all_tags">
-		                            Tags : 
+		                            Tags :
 		                            <c:forEach var = "i" begin = "0" end = "${fn:length(splitTags)-1}">
 		                            <div class="tag">${splitTags[i]}</div>
 		                            </c:forEach>
@@ -253,12 +253,12 @@
 		                    </div>
 		                    <div class="discussion_part_3">
 		                    <h3>Last message by XXXXX</h3>
-		                        <h3>About 3 hours ago</h3> 
+		                        <h3>About 3 hours ago</h3>
 		                    </div>
 		                </div>
 		         			</c:forEach>
-				</c:when>    
-				
+				</c:when>
+
 				<%-- Before applying filters part --%>
 			    <c:otherwise>
 		                <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
@@ -275,7 +275,7 @@
 		                    <div class="discussion_part_1">
 		                        <h1><c:out value = "${row.title}"/></h1>
 		                        <div class="all_tags">
-		                            Tags : 
+		                            Tags :
 		                            <c:forEach var = "i" begin = "0" end = "${fn:length(splitTags)-1}">
 		                            <div class="tag" id="tag123">${splitTags[i]}</div>
 		                            </c:forEach>
@@ -318,7 +318,7 @@
 			  <input type="hidden" id="name" name="name" value="">
 			  <input type="hidden" id="topic_id" name="topic_id" value="${topic_id}">
 			</form>
-			
+
 			<!-- Launch discussions 2 messages servlet with discussion id as a parameter -->
 			<form id="messages_form" action="discussions2messages_Servlet" method="post">
 			  <input type="hidden" id="discussion_id_input" name="discussion_id" value="">
@@ -333,8 +333,8 @@
             });
           //add click event listener to tag divs to launch the tag_form
             $(".tag").click(function (e) {
-                e.stopPropagation(); //Prevents the event from bubbling up the DOM tree, 
-                //preventing any parent handlers from being notified of the event. 
+                e.stopPropagation(); //Prevents the event from bubbling up the DOM tree,
+                //preventing any parent handlers from being notified of the event.
                 //In this case, it allows us to have a clickable div with another clickable div inside
                 var x = $("#tag123").text();
     			$("#tag").val(x);

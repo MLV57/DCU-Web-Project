@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -14,19 +14,19 @@
         <link rel="stylesheet" href="modal_login.css" />
         <title>All topics</title>
     </head>
-    
+
     <body>
-	<% String firstName = request.getParameter("firstName"); //email of the current user 
+	<% String firstName = request.getParameter("firstName"); //email of the current user
 	   String lastName = request.getParameter("lastName"); //email of the current user
        String userSession = null,urlRedirect = null;
        if (firstName != null && lastName !=null){
-    	   userSession = "<div class='session'>"+firstName + " "+lastName+"<div class='sessionButton'><div class='button'><a href='profil.jsp'>My profil</a></div><div class='button'><a href='index.jsp'>Logout</a></div></div></div>"; //display my profil and logout button if the user is connected 
-    	   urlRedirect = "?firstName="+response.encodeURL(firstName)+"&lastName="+lastName; //string appended to the link to pages accessible by url rewriting 
+    	   userSession = "<div class='session'>"+firstName + " "+lastName+"<div class='sessionButton'><div class='button'><a href='profil.jsp'>My profil</a></div><div class='button'><a href='index.jsp'>Logout</a></div></div></div>"; //display my profil and logout button if the user is connected
+    	   urlRedirect = "?firstName="+response.encodeURL(firstName)+"&lastName="+lastName; //string appended to the link to pages accessible by url rewriting
        }
        else {
-    	   userSession = "<button type='button' class='button' id='myBtn' style='color: white;'>Login</button><div class='button'><a href='signup.jsp'>Sign up</a></div>"; //if the user isn't logged in display the login button 
-    	   urlRedirect = ""; //no info to deliver to servlet 
-       }  
+    	   userSession = "<button type='button' class='button' id='myBtn' style='color: white;'>Login</button><div class='button'><a href='signup.jsp'>Sign up</a></div>"; //if the user isn't logged in display the login button
+    	   urlRedirect = ""; //no info to deliver to servlet
+       }
 	 %>
         <div id="dyanamicMenu" class="dyanamicMenu">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -48,7 +48,7 @@
                         <li><a href="about.jsp<%= urlRedirect %>">About us</a></li>
                         <li><a id="menuBtn" onclick="openNav()">**Special event**</a></li>
                     </ul>
-                </nav>  
+                </nav>
                 <div>
                     <input type="text" name="research"  size=50 placeholder="Type your research here" />
                     <input type="submit" value="Search"/>
@@ -62,7 +62,7 @@
             <!-- Modal -->
             <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog">
-           
+
      <!-- Modal content-->
      <div class="modal-content">
        <div class="modal-header" style="padding:35px 50px;">
@@ -70,20 +70,20 @@
          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
        </div>
        <div class="modal-body" style="padding:40px 50px;">
-         <form role="form">
-           <div class="form-group">
-             <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-             <input type="text" class="form-control" id="usrname" placeholder="Enter email">
-             <p style="text-align: center; padding: .25em;" id="incorrect"></p>
-           </div>
-           <div class="form-group">
-             <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-             <input type="text" class="form-control" id="psw" placeholder="Enter password">
-           </div>
-           <div class="checkbox">
-             <label><input type="checkbox" value="" checked>Remember me</label>
-           </div>
-             <button type="button" class="btn btn-success btn-block" onclick="ValidationFunction()"><span class="glyphicon glyphicon-off"></span> Login</button>
+         <form role="form" name="login-form" action="CheckDBforLogin" method='post'>
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <input name = "funame" type="text" class="form-control" id="usrname" placeholder="Enter email">
+              <p style="text-align: center; padding: .25em;" id="incorrect"></p>
+            </div>
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <input name = "fpass" type="text" class="form-control" id="psw" placeholder="Enter password">
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="" checked>Remember me</label>
+            </div>
+              <button class="btn btn-success btn-block" type="submit" value="submit""><span class="glyphicon glyphicon-off"></span> Login</button>
              <p style="margin:1em;text-align:center">Or login with :</p>
              <button type="button" class="btn  btn-block google" ><i class="fa fa-google"></i> Google</button>
              <button type="button" class="btn btn-block facebook"><i class="fa fa-facebook"></i> Facebook</button>
@@ -108,7 +108,7 @@
      </div>
      <!-- End modal content-->
    </div>
- </div> 
+ </div>
  <!-- End Modal-->
             <h1>All topics</h1>
             <div class="title_topics_group" id="technology">
@@ -260,7 +260,7 @@
         <script src="carousel.js"></script>
         <script src="modal_login.js"></script>
         <script>
-        	
+
         </script>
         <script>
             new Carousel(document.querySelector('#carousel1'),{
@@ -275,7 +275,7 @@
             slidesVisible: 3,
         })
         </script>
-        <script> 
+        <script>
         new Carousel(document.querySelector('#carousel3'),{
             slidesToScroll: 1,
             slidesVisible: 3,
@@ -291,7 +291,7 @@
             <input id="topic_id" type="hidden" name="topic_id" value="">
         </form>
         <script>
-            //function that make a div clickable and redirecting to the link contained in the a component 
+            //function that make a div clickable and redirecting to the link contained in the a component
             $(".topic").click(function() {
             	var x = $(this).data('value');
                 $("#topic_id").val(x);
@@ -300,4 +300,3 @@
         </script>
     </body>
 </html>
-    
