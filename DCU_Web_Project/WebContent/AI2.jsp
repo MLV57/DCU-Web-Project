@@ -139,13 +139,7 @@
                     <input type="hidden" id="topic_id" name="topic_id" value="${topic_id}">
                     <input type="submit" value="Apply"/>
                 </form>
-                <input type="button" id="reset_button" value="Reset filters"/>
-                <script>
-                //this allows to correctly reload the page, if the user wants to have all the discussions again
-                $('#reset_button').click(function() {
-                	window.location.replace("AI2.jsp");
-                });
-                </script>
+                
                 
 
             </aside>
@@ -163,7 +157,7 @@
                     <h1>${topic_row.title}</h1>
                     <h2>${topic_row.descr}</h2>
                 </c:forEach>
-                    <h3>3 discussions</h3>
+                    <h3>    </h3>
                 </div>
                 
                 <!-- CREATE A NEW CONVERSATION PART -->
@@ -294,7 +288,7 @@
 						</c:otherwise>
 			</c:choose>
             </section>
-            
+
         </div>
         <footer>
             <div id="copyright">
