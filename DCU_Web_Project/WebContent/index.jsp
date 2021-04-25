@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,7 +28,18 @@
     </head>
     
     <body>
-
+	<% String firstName = request.getParameter("firstName"); //email of the current user 
+	   String lastName = request.getParameter("lastName"); //email of the current user
+       String userSession = null,urlRedirect = null;
+       if (firstName != null && lastName !=null){
+    	   userSession = "<div class='session'>"+firstName + " "+lastName+"<div class='sessionButton'><div class='button'><a href='profil.jsp'>My profil</a></div><div class='button'><a href='index.jsp'>Logout</a></div></div></div>"; //display my profil and logout button if the user is connected 
+    	   urlRedirect = "?firstName="+response.encodeURL(firstName)+"&lastName="+lastName; //string appended to the link to pages accessible by url rewriting 
+       }
+       else {
+    	   userSession = "<button type='button' class='button' id='myBtn' style='color: white;'>Login</button><div class='button'><a href='signup.jsp'>Sign up</a></div>"; //if the user isn't logged in display the login button 
+    	   urlRedirect = ""; //no info to deliver to servlet 
+       }  
+	 %>
         <div id="dyanamicMenu" class="dyanamicMenu">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <h1>**</h1>
@@ -35,16 +48,16 @@
             <h2>Be in with a chance to win a holiday for two to a destination of your choice !</h2>
             <h2>You just have to fill out a form to participate !</h2>
             <h1>Enter Our Competition !</h1>
-            <a href="competition.html">=> Click HERE <=</a>
+            <a href="competition.jsp<%= urlRedirect %>">=> Click HERE <=</a>
         </div>
 
         <header>
             <div id="headband">
-                <a href="index_login.html"><img src="pictures/logo_mini.jpg" alt="Logo"/></a>
+                <a href="index.jsp<%= urlRedirect %>"><img src="pictures/logo_mini.jpg" alt="Logo"/></a>
                 <nav>
                     <ul>
-                        <li><a href="topics.html">Topics</a></li>
-                        <li><a href="about.html">About us</a></li>
+                        <li><a href="topics.jsp<%= urlRedirect %>">Topics</a></li>
+                        <li><a href="about.jsp<%= urlRedirect %>">About us</a></li>
                         <li><a id="menuBtn" onclick="openNav()">**Special event**</a></li>
                     </ul>
                 </nav>  
@@ -52,15 +65,7 @@
                     <input type="text" name="research"  size=50 placeholder="Type your research here" />
                     <input type="submit" value="Search"/>
                 </div>
-
-                <!-- Trigger the modal with a button -->
-                <button type="button" class="button" id="myBtn">Login</button>
-                <div class="button">
-                    <a href="signup.html">Sign up</a>
-                </div>
-                <div class="button">
-                    <a href="profil.html">My profil</a>
-                </div>
+                <%= userSession %>
             </div>
         </header>
         <div id="main_block">
@@ -75,7 +80,7 @@
           <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form" name="login-form" action="CheckDBforLogin" method='post'>
+          <form role="form">
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
               <input type="text" class="form-control" id="usrname" placeholder="Enter email">
@@ -88,7 +93,7 @@
             <div class="checkbox">
               <label><input type="checkbox" value="" checked>Remember me</label>
             </div>
-              <button class="btn btn-success btn-block" type="submit" value="submit""><span class="glyphicon glyphicon-off"></span> Login</button>
+              <button type="button" class="btn btn-success btn-block" onclick="ValidationFunction()"><span class="glyphicon glyphicon-off"></span> Login</button>
               <p style="margin:1em;text-align:center">Or login with :</p>
               <button type="button" class="btn  btn-block google"><i class="fa fa-google"></i> Google</button>
               <button type="button" class="btn btn-block facebook"><i class="fa fa-facebook"></i> Facebook</button>
@@ -96,7 +101,7 @@
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-          <p>Not a member? <a href="signup.html">Sign Up</a></p>
+          <p>Not a member? <a href="signup.jsp<%= urlRedirect %>">Sign Up</a></p>
           <p>Forgot <a href="#">Password?</a></p>
         </div>
         
@@ -181,7 +186,7 @@
             </div>
             <div id="topics">
                 <div class="topics_element">
-                    <a href="topics.html#technology">
+                    <a href="topics.jsp#technology<%= urlRedirect %>">
                         <div class="tech_slide" >
                             <img src="pictures/technology.jpg"  alt="Tech"/>
                             <img src="pictures/technology2.jpg">
@@ -194,7 +199,7 @@
                     </a>
                 </div>
                 <div class="topics_element">
-                    <a href="topics.html#sciences">
+                    <a href="topics.jsp#sciences<%= urlRedirect %>">
                         <div class="sci_slide">
                             <img src="pictures/sciences.jpg" alt="Sciences"/>
                             <img src="pictures/sciences2.jpg">
@@ -207,7 +212,7 @@
                     </a>    
                 </div>
                 <div class="topics_element" >
-                    <a href="topics.html#art">
+                    <a href="topics.jsp#art<%= urlRedirect %>">
                         <div class="art_slide">
                             <img src="pictures/art.jpg" alt="Art"/>
                             <img src="pictures/art2.jpg">
@@ -220,7 +225,7 @@
                     </a>    
                 </div>
                 <div class="topics_element" >
-                    <a href="topics.html#literature">
+                    <a href="topics.jsp#literature<%= urlRedirect %>">
                         <div class="lit_slide">
                             <img src="pictures/literature.jpg" alt="Literature"/>
                             <img src="pictures/literature2.jpg">
