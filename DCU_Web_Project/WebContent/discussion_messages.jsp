@@ -163,7 +163,7 @@
   
                     
             </div>
-            sql:query dataSource = "${snapshot}" var = "result">
+            <sql:query dataSource = "${snapshot}" var = "message">
 						SELECT * FROM testdb.groupH_messages_discussion_table WHERE disc_id =${discussion_id}     </sql:query>
 			<!-- browsing messages in database and displaying content in divs -->
 			<c:forEach var = "row" items = "${message.rows}">
